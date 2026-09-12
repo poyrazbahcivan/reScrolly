@@ -132,6 +132,7 @@ struct RecipeLibraryDetail: View {
                         Link(destination: url) { Label("Open the original", systemImage: "link").font(.subheadline) }
                     }
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(20)
             }
         }

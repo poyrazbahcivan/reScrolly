@@ -133,6 +133,7 @@ struct ShareCard: View {
                         case .failed(let message): failed(message)
                         }
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(20)
                 }
             }

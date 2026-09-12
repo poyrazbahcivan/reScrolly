@@ -215,6 +215,19 @@ struct ImportResult: Codable {
     var warning: String?
 }
 
+/// "Makes 3 meals" instead of 2 scales the recipe. Every quantity scales exactly. Hands-on time grows
+/// more slowly than the batch (chopping twice as much isn't twice the work), and oven or simmer time barely moves.
+enum RecipeScale {
+    static func qty(_ q: Double, unit: String, _ f: Double) -> Double {
+        let v = q * f
+        return ["ea", "slice", "bunch"].contains(unit) ? max(0.5, (v * 2).rounded() / 2) : max(0.1, (v * 10).rounded() / 10)
+    }
+    static func active(_ minutes: Int, _ f: Double) -> Int { max(1, Int((Double(minutes) * (0.5 + 0.5 * f)).rounded())) }
+    static func total(active a: Int, total t: Int, _ f: Double) -> Int {
+        active(a, f) + Int((Double(max(0, t - a)) * (0.85 + 0.15 * f)).rounded())
+    }
+}
+
 /// What adding an imported recipe does to the week, from the planner run with and without it.
 struct RecipeFit: Codable {
     struct Week: Codable { var totalCost: Double; var mealsPlanned: Int; var mealsRequired: Int; var distinctIngredients: Int; var wastePlan: Double }

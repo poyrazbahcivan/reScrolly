@@ -147,6 +147,7 @@ struct EditStepView: View {
                         StepHeader(title: step.title, subtitle: step.subtitle)
                         StepContent(step: step, profile: $state.profile, catalog: state.catalog)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(24)
                 }
                 VStack(spacing: 10) {
@@ -178,6 +179,7 @@ struct EditCookingView: View {
                             MealsStep(profile: $state.profile)
                         }
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(24)
                 }
                 PrimaryButton(title: "Save and replan") { Task { await state.replan() } }

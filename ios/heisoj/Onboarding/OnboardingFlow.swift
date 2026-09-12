@@ -63,6 +63,7 @@ struct OnboardingFlow: View {
                         StepHeader(title: step.title, subtitle: step.subtitle)
                         StepContent(step: step, profile: $state.profile, catalog: state.catalog)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(24)
                     .padding(.bottom, 24)
                 }

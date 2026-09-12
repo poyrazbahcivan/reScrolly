@@ -5,7 +5,8 @@ set -euo pipefail
 cd "$(dirname "$0")"
 [ -f .env ] || { cp .env.example .env; echo "Created .env — set SECRET_KEY."; }
 set -a; source .env; set +a
-uvicorn app.main:app --host 127.0.0.1 --port 8000 &
+# --reload: code changes go live without restarting (the tunnel keeps running)
+uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload --reload-dir app &
 API=$!
 trap 'kill $API 2>/dev/null' EXIT
 cloudflared tunnel run --url http://localhost:8000 heisoj

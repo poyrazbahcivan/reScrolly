@@ -51,6 +51,7 @@ struct LoginView: View {
                         SecondaryButton(title: "Continue without an account") { state.startOnboarding() }
                         TrustNote(text: "Passwords are hashed before storage. We never see them in plain text.")
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(24)
                 }
             }

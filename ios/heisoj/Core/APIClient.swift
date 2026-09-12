@@ -103,6 +103,20 @@ final class APIClient {
     private static func edited(raw: Data, name: String, meals: Int) throws -> [String: Any] {
         let obj = try JSONSerialization.jsonObject(with: raw) as? [String: Any] ?? [:]
         var recipe = obj["recipe"] as? [String: Any] ?? [:]
+        let original = max(1, (recipe["meals"] as? NSNumber)?.intValue ?? meals)
+        let f = Double(meals) / Double(original)
+        if meals != original {
+            recipe["ingredients"] = (recipe["ingredients"] as? [[String: Any]] ?? []).map { item in
+                var item = item
+                let q = (item["qty"] as? NSNumber)?.doubleValue ?? 0
+                item["qty"] = RecipeScale.qty(q, unit: item["unit"] as? String ?? "", f)
+                return item
+            }
+            let active = (recipe["active_minutes"] as? NSNumber)?.intValue ?? 25
+            let total = (recipe["total_minutes"] as? NSNumber)?.intValue ?? active
+            recipe["active_minutes"] = RecipeScale.active(active, f)
+            recipe["total_minutes"] = RecipeScale.total(active: active, total: total, f)
+        }
         recipe["name"] = name
         recipe["meals"] = meals
         return ["recipe": recipe, "custom_ingredients": obj["custom_ingredients"] ?? []]

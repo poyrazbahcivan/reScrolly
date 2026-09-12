@@ -84,6 +84,7 @@ struct RecipeImportView: View {
                 if busy { Text("Reading. This can take up to half a minute.").font(.caption).foregroundStyle(Theme.ink2) }
                 TrustNote(text: trustText)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding(24)
         }
     }
@@ -233,8 +234,14 @@ struct RecipeImportView: View {
                         FieldLabel(text: "Name")
                         InputField(placeholder: "Recipe name", text: $name)
                         Stepper("Makes \(meals) \(meals == 1 ? "meal" : "meals")", value: $meals, in: 1...12).font(.subheadline)
-                        Text("\(Fmt.minutes(r.recipe.activeMinutes)) hands on · \(Fmt.minutes(r.recipe.totalMinutes)) total · keeps \(r.recipe.keepsDays) days")
+                        Text("\(Fmt.minutes(activeMinutes(r))) hands on · \(Fmt.minutes(totalMinutes(r))) total · keeps \(r.recipe.keepsDays) days")
                             .font(.caption).foregroundStyle(Theme.ink2)
+                            .contentTransition(.numericText())
+                            .animation(.snappy, value: meals)
+                        if meals != r.recipe.meals {
+                            Text("Scaled from \(r.recipe.meals). Every amount and the cooking time change with it.")
+                                .font(.caption).foregroundStyle(Theme.ink3)
+                        }
                     }
                 }
                 Card {
@@ -247,7 +254,10 @@ struct RecipeImportView: View {
                                     Text("new").font(.caption2.weight(.semibold)).padding(.horizontal, 6).padding(.vertical, 2).background(Theme.accentSoft, in: Capsule()).foregroundStyle(Theme.accent)
                                 }
                                 Spacer()
-                                Text(Fmt.qty(i.qty, i.unit)).foregroundStyle(Theme.ink2).monospacedDigit()
+                                Text(Fmt.qty(scale(r) == 1 ? i.qty : RecipeScale.qty(i.qty, unit: i.unit, scale(r)), i.unit))
+                                    .foregroundStyle(Theme.ink2).monospacedDigit()
+                                    .contentTransition(.numericText())
+                                    .animation(.snappy, value: meals)
                             }
                             .font(.subheadline)
                         }
@@ -292,9 +302,20 @@ struct RecipeImportView: View {
                     }
                 }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding(24)
         }
         .task(id: "\(r.recipe.id)-\(meals)") { await loadFit() }
+    }
+
+    // MARK: scaling
+
+    private func scale(_ r: ImportResult) -> Double { Double(meals) / Double(max(1, r.recipe.meals)) }
+    private func activeMinutes(_ r: ImportResult) -> Int {
+        meals == r.recipe.meals ? r.recipe.activeMinutes : RecipeScale.active(r.recipe.activeMinutes, scale(r))
+    }
+    private func totalMinutes(_ r: ImportResult) -> Int {
+        meals == r.recipe.meals ? r.recipe.totalMinutes : RecipeScale.total(active: r.recipe.activeMinutes, total: r.recipe.totalMinutes, scale(r))
     }
 
     // MARK: fit

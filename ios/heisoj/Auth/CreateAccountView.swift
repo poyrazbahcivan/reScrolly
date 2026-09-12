@@ -45,6 +45,7 @@ struct CreateAccountView: View {
                         PrimaryButton(title: "Create account", isLoading: busy, enabled: valid) { submit() }
                         TrustNote(text: "We store your email, a hashed password, and your food preferences. Nothing else.")
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(24)
                 }
             }

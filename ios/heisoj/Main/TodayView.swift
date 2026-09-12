@@ -72,6 +72,7 @@ struct TodayView: View {
                             InlineNotice(text: "This is a sample week. Connect to the server in Profile to plan your own.")
                         }
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(20)
                 }
             }

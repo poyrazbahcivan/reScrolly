@@ -30,6 +30,7 @@ struct ShopView: View {
                             TextButton(title: "Clear checkmarks") { for id in state.checked { state.toggleChecked(id) } }
                         }
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(16)
                 }
             }

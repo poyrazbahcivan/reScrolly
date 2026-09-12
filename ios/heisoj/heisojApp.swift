@@ -41,5 +41,6 @@ struct RootView: View {
             }
         }
         .animation(.easeInOut(duration: 0.25), value: state.route)
+        .scrollBounceBehavior(.basedOnSize, axes: .horizontal)
     }
 }

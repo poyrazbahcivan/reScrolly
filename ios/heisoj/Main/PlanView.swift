@@ -47,6 +47,7 @@ struct PlanView: View {
                             }
                         }
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(20)
                 }
             }

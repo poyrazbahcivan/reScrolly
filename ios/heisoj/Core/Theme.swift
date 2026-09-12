@@ -50,7 +50,9 @@ struct Screen<Content: View>: View {
     var body: some View {
         ZStack {
             Theme.background.ignoresSafeArea()
-            content()
+            // Full width and pinned leading. A page narrower than the screen is otherwise centred,
+            // and jumps sideways whenever its content changes width.
+            content().frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         }
     }
 }
