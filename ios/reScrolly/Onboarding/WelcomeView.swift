@@ -9,7 +9,7 @@ struct WelcomeView: View {
             VStack(alignment: .leading, spacing: 0) {
                 Spacer()
                 VStack(alignment: .leading, spacing: 18) {
-                    Text("heisoj")
+                    Text("reScrolly")
                         .font(.system(size: 15, weight: .semibold)).tracking(1.5)
                         .foregroundStyle(Theme.accent)
                     Text("Cook a few times.\nEat all week.")

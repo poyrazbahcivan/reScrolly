@@ -38,7 +38,7 @@ import httpx
 
 from .solver import CATALOG
 
-log = logging.getLogger("heisoj.import")
+log = logging.getLogger("rescrolly.import")
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-flash-latest")

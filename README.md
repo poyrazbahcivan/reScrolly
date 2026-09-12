@@ -1,4 +1,4 @@
-# heisoj
+# reScrolly
 
 Cook a few times. Eat all week.
 
@@ -42,7 +42,7 @@ Every quiz answer changes the plan. The mapping lives in `AppState.makeRequest()
 | Shopping day | anchors the weekly reminder |
 | Calendar | events that look like lunch or dinner leave that slot open |
 
-**Recipes.** Three ways in, one preview, one Save: paste a link (Instagram post or reel, TikTok, any recipe site), take photos (up to four pages; Gemini reads the photos directly and returns only the fields the planner uses), or type it. The server structures everything with Gemini when a key is set, or a rule-based parser otherwise, maps every ingredient to the price catalog, and invents a priced custom ingredient for anything unmatched. Saved recipes live in the user's library and are always in the planner's candidate pool. **Pin** a recipe and the next plan is forced to include it. **Only plan with my recipes** restricts the pool to the library. The app also opens `onepercentchocolatemilk.heisoj://import?url=…` straight into the import sheet.
+**Recipes.** Three ways in, one preview, one Save: paste a link (Instagram post or reel, TikTok, any recipe site), take photos (up to four pages; Gemini reads the photos directly and returns only the fields the planner uses), or type it. The server structures everything with Gemini when a key is set, or a rule-based parser otherwise, maps every ingredient to the price catalog, and invents a priced custom ingredient for anything unmatched. Saved recipes live in the user's library and are always in the planner's candidate pool. **Pin** a recipe and the next plan is forced to include it. **Only plan with my recipes** restricts the pool to the library. The app also opens `onepercentchocolatemilk.rescrolly://import?url=…` straight into the import sheet.
 
 **Calendar.** Read only, on device. Titles and times for the next seven days are checked for lunch and dinner words and social evening events. Matching slots are left open, the reason is shown on Today and Plan, and the plan's meal count drops accordingly. Nothing is uploaded.
 
@@ -56,12 +56,12 @@ Main tabs: **Today**, **Plan** (cost against budget, the week with calendar gaps
 
 ---
 
-### Share a reel straight into heisoj
+### Share a reel straight into reScrolly
 
-`ios/heisojShare/` is a Share Extension (target `heisojShare`, embedded in the app). In Instagram: open a reel → **Share** → the iOS share sheet → **heisoj**. The first time, heisoj may sit under **More**; tap Edit and move it into the row.
+`ios/reScrollyShare/` is a Share Extension (target `reScrollyShare`, embedded in the app). In Instagram: open a reel → **Share** → the iOS share sheet → **reScrolly**. The first time, reScrolly may sit under **More**; tap Edit and move it into the row.
 
 1. The extension pulls the link out of what was shared (a URL, or text containing one for TikTok) and calls `/recipes/import` itself, so the recipe card appears inside Instagram: name, meals, time, ingredients.
-2. **Add to my week** opens `onepercentchocolatemilk.heisoj://import?url=…`. The server cached what it read for 30 minutes, so the app shows the preview instantly.
+2. **Add to my week** opens `onepercentchocolatemilk.rescrolly://import?url=…`. The server cached what it read for 30 minutes, so the app shows the preview instantly.
 3. The preview calls `/recipes/fit`, which runs the planner twice, without the recipe and with it pinned, and shows the difference: cost change on the shopping trip, ingredients it shares with what you're already buying, what it replaces, and whether you lose meals under your budget.
 4. **Save and plan my week** saves it, pins it, and rebuilds the week around it.
 
@@ -72,7 +72,7 @@ If iOS refuses to open the app from the extension, the link is copied instead an
 - **Instagram.** A server that fetches an Instagram page gets HTML with no caption and no `og:` tags, so the page itself is useless. The server asks Instagram's public oEmbed endpoint (`instagram.com/api/v1/oembed/?url=…`) for the caption and cover image, and falls back to the post's `/embed/captioned/` page. Share and `?igsh=` links are normalised to `instagram.com/p/<code>/` first. The caption **and** the cover image go to Gemini, since reels often print the ingredients on the cover. Private posts can't be read, and a recipe that is only spoken in the video isn't in either; the app says so and suggests typing the dish name.
 - **TikTok.** Same idea through `tiktok.com/oembed` (caption and cover). Short `vm.tiktok.com` links are resolved first.
 - **Recipe sites.** schema.org `Recipe` JSON-LD when present (most sites), otherwise title, description, and the page's visible text.
-- **Getting a link into the app.** In Instagram: Share → Copy link → Add a recipe → Paste. Or open `onepercentchocolatemilk.heisoj://import?url=<encoded link>` from anywhere, for example an iOS Shortcut that accepts URLs from the share sheet, and the import sheet opens with the link filled in.
+- **Getting a link into the app.** In Instagram: Share → Copy link → Add a recipe → Paste. Or open `onepercentchocolatemilk.rescrolly://import?url=<encoded link>` from anywhere, for example an iOS Shortcut that accepts URLs from the share sheet, and the import sheet opens with the link filled in.
 
 Gemini is called with a response schema, so the reply is exactly the recipe fields and nothing else. If the model is overloaded it retries on `GEMINI_FALLBACK_MODELS`; text sources then fall back to the rule-based parser.
 
@@ -115,7 +115,7 @@ Identity, checked in order: our own HS256 session token (register/login), an Aut
 ### Auth0 (MLH prize)
 
 1. Applications → Create → Native. Note Domain and Client ID. APIs → Create → the Identifier is `AUTH0_AUDIENCE`.
-2. Allowed Callback and Logout URLs: `https://YOUR_TENANT.us.auth0.com/ios/onepercentchocolatemilk.heisoj/callback`
+2. Allowed Callback and Logout URLs: `https://YOUR_TENANT.us.auth0.com/ios/onepercentchocolatemilk.rescrolly/callback`
 3. Set `AUTH0_DOMAIN` and `AUTH0_AUDIENCE` in `.env`. Tokens from the Auth0 SDK are now accepted on every route.
 4. iOS: add the `Auth0.swift` package, copy `Auth0.plist.example` to `Auth0.plist`, add the Associated Domains capability `webcredentials:YOUR_TENANT.us.auth0.com`. Then wire a "Continue with Auth0" button to `Auth0.webAuth().useHTTPS().start` and store `credentials.accessToken` via `APIClient.shared.token = …`. The backend accepts it as-is.
 
@@ -130,8 +130,8 @@ One-time setup (the domain is already on Cloudflare):
 ```bash
 brew install cloudflared
 cloudflared tunnel login                       # browser: pick poyraz.us
-cloudflared tunnel create heisoj
-cloudflared tunnel route dns heisoj hs.poyraz.us   # creates the CNAME
+cloudflared tunnel create rescrolly
+cloudflared tunnel route dns rescrolly hs.poyraz.us   # creates the CNAME
 ```
 
 Every time:
@@ -148,9 +148,9 @@ Same container, different box. Deploy Ubuntu 24.04, then:
 
 ```bash
 apt update && apt install -y docker.io git
-git clone <repo> && cd heisoj/backend && cp .env.example .env && nano .env
-docker build -t heisoj . && docker run -d --restart unless-stopped -p 127.0.0.1:8000:8000 --env-file .env heisoj
-cloudflared tunnel run --url http://localhost:8000 heisoj   # same tunnel, moved to the server
+git clone <repo> && cd reScrolly/backend && cp .env.example .env && nano .env
+docker build -t reScrolly . && docker run -d --restart unless-stopped -p 127.0.0.1:8000:8000 --env-file .env reScrolly
+cloudflared tunnel run --url http://localhost:8000 reScrolly   # same tunnel, moved to the server
 ```
 
 Moving the tunnel to Vultr changes nothing in the app.
@@ -161,8 +161,8 @@ Moving the tunnel to Vultr changes nothing in the app.
 
 ### Add the files to your Xcode project
 
-1. Drag the *contents* of `ios/heisoj/` (`heisojApp.swift`, `Core/`, `Onboarding/`, `Auth/`, `Main/`, `Resources/`) into the project navigator onto the `heisoj` group. Copy items if needed, target `heisoj` ticked.
-2. Delete Xcode's generated `ContentView.swift` and its `heisojApp.swift`.
+1. Drag the *contents* of `ios/reScrolly/` (`ReScrollyApp.swift`, `Core/`, `Onboarding/`, `Auth/`, `Main/`, `Resources/`) into the project navigator onto the `reScrolly` group. Copy items if needed, target `reScrolly` ticked.
+2. Delete Xcode's generated `ContentView.swift` and its `ReScrollyApp.swift`.
 3. Select `Resources/FallbackPlan.json` and confirm Target Membership.
 4. Target → General → Minimum Deployments → iOS 17.0.
 5. Build.
@@ -175,7 +175,7 @@ Both usage descriptions are already set in the target's build settings; they're 
 |---|---|
 | Privacy - Calendars Full Access Usage Description | We check your calendar for lunches and dinners so we don't plan meals you'll eat out. |
 | Privacy - Camera Usage Description | Take a photo of a recipe from a cookbook or a card to add it. |
-| URL Types → URL Schemes | `onepercentchocolatemilk.heisoj` (already there for Auth0; also used for `…://import?url=`) |
+| URL Types → URL Schemes | `onepercentchocolatemilk.rescrolly` (already there for Auth0; also used for `…://import?url=`) |
 
 Photos use `PhotosPicker`, which needs no usage string.
 
@@ -208,8 +208,8 @@ backend/app/
   db.py          Mongo or in-memory: users, profiles, plans
   models.py      request schemas
   data/          ingredients.json, recipes.json
-ios/heisoj/
-  heisojApp.swift            entry + route switch
+ios/reScrolly/
+  ReScrollyApp.swift            entry + route switch
   Core/                      Theme, Models, APIClient, Keychain, AppState, CalendarManager, NotificationManager
   Onboarding/                Welcome, OnboardingFlow, OnboardingSteps, BuildingPlan
   Auth/                      Login, CreateAccount, ForgotPassword

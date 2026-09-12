@@ -3,7 +3,7 @@ import Security
 
 /// Minimal Keychain wrapper for the session token. Nothing else goes here.
 enum Keychain {
-    private static let service = "app.heisoj.session"
+    private static let service = "app.rescrolly.session"
 
     static func set(_ value: String, for key: String) {
         let data = Data(value.utf8)

@@ -3,7 +3,7 @@ import SwiftUI
 import UIKit
 import UniformTypeIdentifiers
 
-/// "Share → heisoj" from Instagram, TikTok, Safari, or anything else with a link.
+/// "Share → reScrolly" from Instagram, TikTok, Safari, or anything else with a link.
 /// Reads the post right here in the share sheet and shows the recipe, then hands the
 /// link to the app. The server keeps the result for half an hour, so the app opens it instantly.
 final class ShareViewController: UIViewController {
@@ -53,7 +53,7 @@ final class ShareModel: ObservableObject {
 
     func start(items: [NSExtensionItem]) async {
         guard let url = await Self.findLink(in: items) else {
-            phase = .failed("There's no link in what was shared. In Instagram, open the reel, tap Share, then choose heisoj.")
+            phase = .failed("There's no link in what was shared. In Instagram, open the reel, tap Share, then choose reScrolly.")
             return
         }
         link = url
@@ -65,7 +65,7 @@ final class ShareModel: ObservableObject {
     func handOff() {
         guard let link else { close(); return }
         let encoded = link.absoluteString.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? ""
-        if let deep = URL(string: "onepercentchocolatemilk.heisoj://import?url=\(encoded)"), openApp(deep) {
+        if let deep = URL(string: "onepercentchocolatemilk.rescrolly://import?url=\(encoded)"), openApp(deep) {
             close()
         } else {
             UIPasteboard.general.url = link
@@ -108,7 +108,7 @@ enum ShareAPI {
         req.httpBody = try JSONSerialization.data(withJSONObject: ["source": "url", "url": url.absoluteString])
         let (data, resp): (Data, URLResponse)
         do { (data, resp) = try await URLSession.shared.data(for: req) }
-        catch { throw Failure(errorDescription: "Can't reach heisoj right now. Check your connection and try again.") }
+        catch { throw Failure(errorDescription: "Can't reach reScrolly right now. Check your connection and try again.") }
         guard let http = resp as? HTTPURLResponse, http.statusCode == 200 else {
             let detail = (try? JSONSerialization.jsonObject(with: data) as? [String: Any])?["detail"] as? String
             throw Failure(errorDescription: detail ?? "Couldn't read that post.")
@@ -137,7 +137,7 @@ struct ShareCard: View {
                     .padding(20)
                 }
             }
-            .navigationTitle("heisoj")
+            .navigationTitle("reScrolly")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Close") { model.close() } } }
         }
@@ -200,10 +200,10 @@ struct ShareCard: View {
                 }
             }
             if model.copiedInstead {
-                InlineNotice(text: "Link copied. Open heisoj, go to Recipes, tap +, then Paste. It opens instantly.")
+                InlineNotice(text: "Link copied. Open reScrolly, go to Recipes, tap +, then Paste. It opens instantly.")
             }
             PrimaryButton(title: "Add to my week") { model.handOff() }
-            TrustNote(text: "Opens heisoj to show what it costs and how it fits the week you already have.")
+            TrustNote(text: "Opens reScrolly to show what it costs and how it fits the week you already have.")
         }
     }
 
@@ -212,10 +212,10 @@ struct ShareCard: View {
             StepHeader(title: "Couldn't read that one")
             InlineNotice(text: message, tone: .warn)
             if model.link != nil {
-                SecondaryButton(title: "Open in heisoj anyway", systemImage: "arrow.up.forward.app") { model.handOff() }
+                SecondaryButton(title: "Open in reScrolly anyway", systemImage: "arrow.up.forward.app") { model.handOff() }
             }
             if model.copiedInstead {
-                InlineNotice(text: "Link copied. Open heisoj, go to Recipes, tap +, then Paste.")
+                InlineNotice(text: "Link copied. Open reScrolly, go to Recipes, tap +, then Paste.")
             }
         }
     }

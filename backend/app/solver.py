@@ -1,5 +1,5 @@
 """
-heisoj planning engine.
+reScrolly planning engine.
 
 Recipes form a graph: a recipe consumes ingredients and components and
 produces components that later recipes consume. The planner chooses recipes

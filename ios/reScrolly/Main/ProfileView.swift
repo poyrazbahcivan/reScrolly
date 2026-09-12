@@ -76,7 +76,7 @@ struct ProfileView: View {
             Section {
                 Button("Erase everything on this phone", role: .destructive) { confirmReset = true }
             } footer: {
-                Text("heisoj 1.1 · Cook a few times. Eat all week.")
+                Text("reScrolly 1.1 · Cook a few times. Eat all week.")
             }
         }
         .scrollContentBackground(.hidden)

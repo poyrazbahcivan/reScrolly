@@ -16,9 +16,9 @@ from .models import (FitRecipeModel, ForgotModel, ImportRecipeModel, LoginModel,
 from .recipes_import import GEMINI_API_KEY, GEMINI_MODEL, ImportFailed, import_recipe
 from .solver import CATALOG, PlanRequest, plan
 
-log = logging.getLogger("heisoj")
+log = logging.getLogger("rescrolly")
 
-app = FastAPI(title="heisoj", version="2.0.0", description="Cook a few times. Eat all week.")
+app = FastAPI(title="reScrolly", version="2.0.0", description="Cook a few times. Eat all week.")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 
@@ -39,7 +39,7 @@ async def mongo_down(_: Request, exc: PyMongoError):
 
 @app.get("/")
 async def root():
-    return {"app": "heisoj", "tagline": "Cook a few times. Eat all week.", "docs": "/docs"}
+    return {"app": "reScrolly", "tagline": "Cook a few times. Eat all week.", "docs": "/docs"}
 
 
 @app.get("/health")

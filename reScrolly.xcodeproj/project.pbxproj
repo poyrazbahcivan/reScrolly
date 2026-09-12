@@ -46,11 +46,11 @@
 		A36BD551305561A300303CA4 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD50A305561A300303CA4 /* CreateAccountView.swift */; };
 		A36BD552305561A300303CA4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD51A305561A300303CA4 /* ProfileView.swift */; };
 		A36BD553305561A300303CA4 /* BuildingPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD521305561A300303CA4 /* BuildingPlanView.swift */; };
-		A36BD554305561A300303CA4 /* heisojApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD529305561A300303CA4 /* heisojApp.swift */; };
+		A36BD554305561A300303CA4 /* ReScrollyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD529305561A300303CA4 /* ReScrollyApp.swift */; };
 		A36BD555305561A300303CA4 /* RotTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD51D305561A300303CA4 /* RotTimelineView.swift */; };
 		A36BD558305564EE00303CA4 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = A36BD557305564EE00303CA4 /* Auth0 */; };
 		A36BD55B305565BF00303CA4 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = A36BD55A305565BF00303CA4 /* Auth0.plist */; };
-		C0DE5A0000000000000000A9 /* heisojShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C0DE5A0000000000000000A2 /* heisojShare.appex */; settings = {ATTRIBUTES = (RemoveHeaderOnCopy, ); }; };
+		C0DE5A0000000000000000A9 /* reScrollyShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C0DE5A0000000000000000A2 /* reScrollyShare.appex */; settings = {ATTRIBUTES = (RemoveHeaderOnCopy, ); }; };
 		C0DE5A0000000000000000AF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD514305561A300303CA4 /* Theme.swift */; };
 		C0DE5A0000000000000000B0 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD512305561A300303CA4 /* Models.swift */; };
 /* End PBXBuildFile section */
@@ -61,7 +61,7 @@
 			containerPortal = A36BD4E43055618200303CA4 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C0DE5A0000000000000000A1;
-			remoteInfo = heisojShare;
+			remoteInfo = reScrollyShare;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -72,7 +72,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C0DE5A0000000000000000A9 /* heisojShare.appex in Embed Foundation Extensions */,
+				C0DE5A0000000000000000A9 /* reScrollyShare.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,7 +80,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A36BD4EC3055618200303CA4 /* heisoj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heisoj.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A36BD4EC3055618200303CA4 /* reScrolly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reScrolly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A36BD4FA305561A300303CA4 /* ingredients.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ingredients.json; sourceTree = "<group>"; };
 		A36BD4FB305561A300303CA4 /* recipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recipes.json; sourceTree = "<group>"; };
 		A36BD4FD305561A300303CA4 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
@@ -120,16 +120,16 @@
 		A36BD524305561A300303CA4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A36BD526305561A300303CA4 /* FallbackPlan.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FallbackPlan.json; sourceTree = "<group>"; };
 		A36BD528305561A300303CA4 /* Auth0.plist.example */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Auth0.plist.example; sourceTree = "<group>"; };
-		A36BD529305561A300303CA4 /* heisojApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = heisojApp.swift; sourceTree = "<group>"; };
+		A36BD529305561A300303CA4 /* ReScrollyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReScrollyApp.swift; sourceTree = "<group>"; };
 		A36BD52C305561A300303CA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A36BD55A305565BF00303CA4 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Auth0.plist; path = ios/heisoj/Auth0.plist; sourceTree = "<group>"; };
-		A36BD55C3055C95800303CA4 /* heisoj-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "heisoj-Info.plist"; sourceTree = "<group>"; };
-		C0DE5A0000000000000000A2 /* heisojShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = heisojShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0DE5A0000000000000000A3 /* heisojShare-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "heisojShare-Info.plist"; sourceTree = "<group>"; };
+		A36BD55A305565BF00303CA4 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Auth0.plist; path = ios/reScrolly/Auth0.plist; sourceTree = "<group>"; };
+		A36BD55C3055C95800303CA4 /* reScrolly-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "reScrolly-Info.plist"; sourceTree = "<group>"; };
+		C0DE5A0000000000000000A2 /* reScrollyShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = reScrollyShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0DE5A0000000000000000A3 /* reScrollyShare-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "reScrollyShare-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		C0DE5A0000000000000000A4 /* heisojShare */ = {isa = PBXFileSystemSynchronizedRootGroup; path = heisojShare; sourceTree = "<group>"; };
+		C0DE5A0000000000000000A4 /* reScrollyShare */ = {isa = PBXFileSystemSynchronizedRootGroup; path = reScrollyShare; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +154,7 @@
 		A36BD4E33055618200303CA4 = {
 			isa = PBXGroup;
 			children = (
-				A36BD55C3055C95800303CA4 /* heisoj-Info.plist */,
+				A36BD55C3055C95800303CA4 /* reScrolly-Info.plist */,
 				A36BD55A305565BF00303CA4 /* Auth0.plist */,
 				A36BD509305561A300303CA4 /* backend */,
 				A36BD52B305561A300303CA4 /* ios */,
@@ -167,8 +167,8 @@
 		A36BD4ED3055618200303CA4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A36BD4EC3055618200303CA4 /* heisoj.app */,
-				C0DE5A0000000000000000A2 /* heisojShare.appex */,
+				A36BD4EC3055618200303CA4 /* reScrolly.app */,
+				C0DE5A0000000000000000A2 /* reScrollyShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,7 +269,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		A36BD52A305561A300303CA4 /* heisoj */ = {
+		A36BD52A305561A300303CA4 /* reScrolly */ = {
 			isa = PBXGroup;
 			children = (
 				A36BD50D305561A300303CA4 /* Auth */,
@@ -278,17 +278,17 @@
 				A36BD525305561A300303CA4 /* Onboarding */,
 				A36BD527305561A300303CA4 /* Resources */,
 				A36BD528305561A300303CA4 /* Auth0.plist.example */,
-				A36BD529305561A300303CA4 /* heisojApp.swift */,
+				A36BD529305561A300303CA4 /* ReScrollyApp.swift */,
 			);
-			path = heisoj;
+			path = reScrolly;
 			sourceTree = "<group>";
 		};
 		A36BD52B305561A300303CA4 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				A36BD52A305561A300303CA4 /* heisoj */,
-				C0DE5A0000000000000000A4 /* heisojShare */,
-				C0DE5A0000000000000000A3 /* heisojShare-Info.plist */,
+				A36BD52A305561A300303CA4 /* reScrolly */,
+				C0DE5A0000000000000000A4 /* reScrollyShare */,
+				C0DE5A0000000000000000A3 /* reScrollyShare-Info.plist */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -303,9 +303,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A36BD4EB3055618200303CA4 /* heisoj */ = {
+		A36BD4EB3055618200303CA4 /* reScrolly */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A36BD4F73055618400303CA4 /* Build configuration list for PBXNativeTarget "heisoj" */;
+			buildConfigurationList = A36BD4F73055618400303CA4 /* Build configuration list for PBXNativeTarget "reScrolly" */;
 			buildPhases = (
 				A36BD4E83055618200303CA4 /* Sources */,
 				A36BD4E93055618200303CA4 /* Frameworks */,
@@ -317,17 +317,17 @@
 			dependencies = (
 				C0DE5A0000000000000000AB /* PBXTargetDependency */,
 			);
-			name = heisoj;
+			name = reScrolly;
 			packageProductDependencies = (
 				A36BD557305564EE00303CA4 /* Auth0 */,
 			);
-			productName = heisoj;
-			productReference = A36BD4EC3055618200303CA4 /* heisoj.app */;
+			productName = reScrolly;
+			productReference = A36BD4EC3055618200303CA4 /* reScrolly.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C0DE5A0000000000000000A1 /* heisojShare */ = {
+		C0DE5A0000000000000000A1 /* reScrollyShare */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0DE5A0000000000000000AC /* Build configuration list for PBXNativeTarget "heisojShare" */;
+			buildConfigurationList = C0DE5A0000000000000000AC /* Build configuration list for PBXNativeTarget "reScrollyShare" */;
 			buildPhases = (
 				C0DE5A0000000000000000A5 /* Sources */,
 				C0DE5A0000000000000000A6 /* Frameworks */,
@@ -338,13 +338,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				C0DE5A0000000000000000A4 /* heisojShare */,
+				C0DE5A0000000000000000A4 /* reScrollyShare */,
 			);
-			name = heisojShare;
+			name = reScrollyShare;
 			packageProductDependencies = (
 			);
-			productName = heisojShare;
-			productReference = C0DE5A0000000000000000A2 /* heisojShare.appex */;
+			productName = reScrollyShare;
+			productReference = C0DE5A0000000000000000A2 /* reScrollyShare.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -365,7 +365,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A36BD4E73055618200303CA4 /* Build configuration list for PBXProject "heisoj" */;
+			buildConfigurationList = A36BD4E73055618200303CA4 /* Build configuration list for PBXProject "reScrolly" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -382,8 +382,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A36BD4EB3055618200303CA4 /* heisoj */,
-				C0DE5A0000000000000000A1 /* heisojShare */,
+				A36BD4EB3055618200303CA4 /* reScrolly */,
+				C0DE5A0000000000000000A1 /* reScrollyShare */,
 			);
 		};
 /* End PBXProject section */
@@ -450,7 +450,7 @@
 				A36BD551305561A300303CA4 /* CreateAccountView.swift in Sources */,
 				A36BD552305561A300303CA4 /* ProfileView.swift in Sources */,
 				A36BD553305561A300303CA4 /* BuildingPlanView.swift in Sources */,
-				A36BD554305561A300303CA4 /* heisojApp.swift in Sources */,
+				A36BD554305561A300303CA4 /* ReScrollyApp.swift in Sources */,
 				A36BD555305561A300303CA4 /* RotTimelineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,7 +469,7 @@
 /* Begin PBXTargetDependency section */
 		C0DE5A0000000000000000AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C0DE5A0000000000000000A1 /* heisojShare */;
+			target = C0DE5A0000000000000000A1 /* reScrollyShare */;
 			targetProxy = C0DE5A0000000000000000AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -606,7 +606,7 @@
 				DEVELOPMENT_TEAM = HV8YBUTG3L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "heisoj-Info.plist";
+				INFOPLIST_FILE = "reScrolly-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "We check your calendar for lunches and dinners so we don't plan meals you'll eat out.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Take a photo of a recipe from a cookbook or a card to add it.";
@@ -621,7 +621,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = onepercentchocolatemilk.heisoj;
+				PRODUCT_BUNDLE_IDENTIFIER = onepercentchocolatemilk.rescrolly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -643,7 +643,7 @@
 				DEVELOPMENT_TEAM = HV8YBUTG3L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "heisoj-Info.plist";
+				INFOPLIST_FILE = "reScrolly-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "We check your calendar for lunches and dinners so we don't plan meals you'll eat out.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Take a photo of a recipe from a cookbook or a card to add it.";
@@ -658,7 +658,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = onepercentchocolatemilk.heisoj;
+				PRODUCT_BUNDLE_IDENTIFIER = onepercentchocolatemilk.rescrolly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -677,8 +677,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HV8YBUTG3L;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ios/heisojShare-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = heisoj;
+				INFOPLIST_FILE = "ios/reScrollyShare-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = reScrolly;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -686,7 +686,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = onepercentchocolatemilk.heisoj.share;
+				PRODUCT_BUNDLE_IDENTIFIER = onepercentchocolatemilk.rescrolly.share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -706,8 +706,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HV8YBUTG3L;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ios/heisojShare-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = heisoj;
+				INFOPLIST_FILE = "ios/reScrollyShare-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = reScrolly;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -715,7 +715,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = onepercentchocolatemilk.heisoj.share;
+				PRODUCT_BUNDLE_IDENTIFIER = onepercentchocolatemilk.rescrolly.share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -731,7 +731,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A36BD4E73055618200303CA4 /* Build configuration list for PBXProject "heisoj" */ = {
+		A36BD4E73055618200303CA4 /* Build configuration list for PBXProject "reScrolly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A36BD4F53055618400303CA4 /* Debug */,
@@ -740,7 +740,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A36BD4F73055618400303CA4 /* Build configuration list for PBXNativeTarget "heisoj" */ = {
+		A36BD4F73055618400303CA4 /* Build configuration list for PBXNativeTarget "reScrolly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A36BD4F83055618400303CA4 /* Debug */,
@@ -749,7 +749,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C0DE5A0000000000000000AC /* Build configuration list for PBXNativeTarget "heisojShare" */ = {
+		C0DE5A0000000000000000AC /* Build configuration list for PBXNativeTarget "reScrollyShare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0DE5A0000000000000000AD /* Debug */,

@@ -16,7 +16,7 @@ enum NotificationManager {
         center.removePendingNotificationRequests(withIdentifiers: [id])
         let content = UNMutableNotificationContent()
         content.title = "Your week gets planned tomorrow"
-        content.body = "Anything change? Update your answers or add a recipe and heisoj will build around it."
+        content.body = "Anything change? Update your answers or add a recipe and reScrolly will build around it."
         content.sound = .default
         var comps = DateComponents()
         comps.weekday = ((shopWeekday - 1 + 7) % 7) + 1   // the day before shopping, 1 = Sunday

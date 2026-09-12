@@ -1,5 +1,5 @@
 """
-Identity for heisoj.
+Identity for reScrolly.
 
 Three ways a request can identify itself, checked in this order:
 
@@ -67,14 +67,14 @@ def verify_password(password: str, stored: str) -> bool:
 def issue_token(user_id: str, email: str) -> str:
     now = datetime.now(timezone.utc)
     return jwt.encode(
-        {"sub": user_id, "email": email, "iat": now, "exp": now + timedelta(days=SESSION_DAYS), "iss": "heisoj"},
+        {"sub": user_id, "email": email, "iat": now, "exp": now + timedelta(days=SESSION_DAYS), "iss": "rescrolly"},
         SECRET_KEY, algorithm="HS256",
     )
 
 
 def _verify_local(token: str) -> Optional[str]:
     try:
-        claims = jwt.decode(token, SECRET_KEY, algorithms=["HS256"], issuer="heisoj")
+        claims = jwt.decode(token, SECRET_KEY, algorithms=["HS256"], issuer="rescrolly")
         return claims["sub"]
     except Exception:  # noqa: BLE001
         return None

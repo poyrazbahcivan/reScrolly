@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct heisojApp: App {
+struct ReScrollyApp: App {
     @StateObject private var state = AppState()
 
     var body: some Scene {

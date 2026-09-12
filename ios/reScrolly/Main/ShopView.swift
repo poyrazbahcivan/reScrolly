@@ -252,7 +252,7 @@ struct PaperList: View {
         let view = PaperList(plan: plan, servings: servings, forPrint: true).frame(width: 560)
         let renderer = ImageRenderer(content: view)
         renderer.scale = 2
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("heisoj-groceries.pdf")
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("reScrolly-groceries.pdf")
         renderer.render { size, draw in
             var box = CGRect(origin: .zero, size: size)
             guard let ctx = CGContext(url as CFURL, mediaBox: &box, nil) else { return }

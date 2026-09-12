@@ -9,4 +9,4 @@ set -a; source .env; set +a
 uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload --reload-dir app &
 API=$!
 trap 'kill $API 2>/dev/null' EXIT
-cloudflared tunnel run --url http://localhost:8000 heisoj
+cloudflared tunnel run --url http://localhost:8000 "${CLOUDFLARE_TUNNEL:-rescrolly}"

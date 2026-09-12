@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from typing import Dict, List, Optional
 
 MONGO_URI = os.getenv("MONGO_URI")
-MONGO_DB = os.getenv("MONGO_DB", "heisoj")
+MONGO_DB = os.getenv("MONGO_DB", "rescrolly")
 
 _users: Dict[str, dict] = {}
 _profiles: Dict[str, dict] = {}
