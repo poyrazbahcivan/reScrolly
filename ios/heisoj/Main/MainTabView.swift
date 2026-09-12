@@ -7,10 +7,10 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             NavigationStack { TodayView() }.tabItem { Label("Today", systemImage: "sun.max") }
-            NavigationStack { PlanView() }.tabItem { Label("Plan", systemImage: "calendar") }
+            NavigationStack { PlanView() }.tabItem { Label("Week", systemImage: "calendar") }
             NavigationStack { RecipesView() }.tabItem { Label("Recipes", systemImage: "book") }
-            NavigationStack { ShopView() }.tabItem { Label("Shop", systemImage: "cart") }
-            NavigationStack { ProfileView() }.tabItem { Label("Profile", systemImage: "person.crop.circle") }
+            NavigationStack { ShopView() }.tabItem { Label("Groceries", systemImage: "cart") }
+            NavigationStack { ProfileView() }.tabItem { Label("You", systemImage: "person.crop.circle") }
         }
         .sheet(isPresented: $state.showSavePrompt) { SavePromptView() }
         .sheet(isPresented: $showImport) { RecipeImportView() }

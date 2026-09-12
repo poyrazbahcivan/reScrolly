@@ -40,7 +40,8 @@ SLOTS = {1: ["dinner"], 2: ["lunch", "dinner"], 3: ["breakfast", "lunch", "dinne
 INGREDIENT_WEIGHT = 0.55
 CHAIN_BONUS = 1.25
 MUST_HAVE_BONUS = 1.45
-LIKE_BONUS = 0.15   # per matching mood
+LIKE_BONUS = 0.3    # per matching mood
+PREFERENCE_DOLLARS = 3.0   # what a dish you'd prefer is worth per meal, weighed against cost
 
 
 # ---------------------------------------------------------------- data ----
@@ -175,6 +176,7 @@ class PlanRequest:
     likes: List[str] = field(default_factory=list)
     pinned_recipe_ids: List[str] = field(default_factory=list)
     only_my_recipes: bool = False
+    goals: List[str] = field(default_factory=list)   # save | waste | health | learn
     extra_recipes: List[dict] = field(default_factory=list)
     extra_ingredients: List[dict] = field(default_factory=list)
 
@@ -241,6 +243,36 @@ def active_of(cat: Catalog, selected: Set[str]) -> int:
     return sum(cat.recipes[r].active_minutes for r in selected)
 
 
+def is_breakfast(r: Recipe) -> bool:
+    return "breakfast" in r.moods
+
+
+def demand(req: PlanRequest) -> Tuple[int, int]:
+    """Open slots that need a meal: (breakfasts, lunches and dinners)."""
+    open_slots = [s for s in slot_list(req) if not s["skipped"]]
+    b = sum(1 for s in open_slots if s["slot"] == "breakfast")
+    return b, len(open_slots) - b
+
+
+def covered(cat: Catalog, selected: Set[str], req: PlanRequest) -> int:
+    """Meals the selection can actually serve. Breakfast food only covers breakfasts, and
+    nothing else does: nobody wants biryani at 8 am or pancakes for dinner."""
+    need_b, need_m = demand(req)
+    b = sum(cat.recipes[r].meals for r in selected if is_breakfast(cat.recipes[r]))
+    m = sum(cat.recipes[r].meals for r in selected if not is_breakfast(cat.recipes[r]))
+    return min(b, need_b) + min(m, need_m)
+
+
+def tuning(req: PlanRequest) -> Dict[str, float]:
+    """How the answers to "What do you want out of this?" weigh each choice."""
+    g = set(req.goals)
+    return {
+        "cost": 1.5 if "save" in g else 1.0,                                    # every extra dollar counts more
+        "ingredient": INGREDIENT_WEIGHT * (1.8 if "waste" in g else 1.0),      # fewer distinct things to buy
+        "chain": CHAIN_BONUS * (1.2 if "waste" in g else 1.0),                  # more cook-once, eat-twice
+    }
+
+
 def slot_list(req: PlanRequest) -> List[dict]:
     """Every meal slot in the week, with calendar skips marked."""
     slots = SLOTS[max(1, min(3, req.meals_per_day))]
@@ -298,6 +330,10 @@ def preference_multiplier(r: Recipe, req: PlanRequest) -> float:
         m *= MUST_HAVE_BONUS
     if req.likes:
         m *= 1.0 + LIKE_BONUS * len(set(r.moods) & set(req.likes))
+    if "health" in req.goals:
+        m *= 1.0 + 0.3 * len(set(r.moods) & {"light", "high_fiber", "high_protein"})
+    if "learn" in req.goals:
+        m *= 1.0 + 0.15 * min(3, len(set(r.techniques)))
     if r.source != "catalog":
         m *= 1.2   # the user's own recipes get a nudge
     return m
@@ -307,21 +343,23 @@ def bundle(cat: Catalog, allowed: Dict[str, Recipe], req: PlanRequest, selected:
     base_need = cart(cat, selected, req.servings)
     base_cost = cart_cost(cat, base_need, req.assume_staples)
     base_ing = set(base_need)
+    base_cov = covered(cat, selected, req)
+    t = tuning(req)
 
     def score_of(add_set: Set[str]) -> Tuple[float, float]:
         sel = selected | add_set
         need = cart(cat, sel, req.servings)
         cost = cart_cost(cat, need, req.assume_staples)
         new_ing = len({x for x in set(need) - base_ing if not cat.ingredients[x].staple})
-        meals = sum(cat.recipes[x].meals for x in add_set)
+        meals = covered(cat, sel, req) - base_cov
         pref = max((preference_multiplier(cat.recipes[x], req) for x in add_set), default=1.0)
-        return pref * meals / ((cost - base_cost) + INGREDIENT_WEIGHT * new_ing + 0.01), cost
+        return pref * meals / (t["cost"] * (cost - base_cost) + t["ingredient"] * new_ing + 0.01), cost
 
     cur_score, _ = score_of(add)
     changed = True
     while changed:
         changed = False
-        if meals_of(cat, selected) + sum(cat.recipes[x].meals for x in add) >= required + 1:
+        if covered(cat, selected | add, req) >= required:
             break
         produced = {c for x in add for c, _ in cat.recipes[x].produces}
         best, best_score = None, cur_score
@@ -367,7 +405,9 @@ def select_recipes(cat: Catalog, req: PlanRequest, required: int) -> Tuple[Set[s
     if cart_cost(cat, cart(cat, selected, req.servings), req.assume_staples) > req.budget:
         notes.append("Your pinned recipes alone are over budget.")
 
-    while meals_of(cat, selected) < required:
+    t = tuning(req)
+    while covered(cat, selected, req) < required:
+        base_cov = covered(cat, selected, req)
         base_need = cart(cat, selected, req.servings)
         base_cost = cart_cost(cat, base_need, req.assume_staples)
         base_ing = set(base_need)
@@ -388,12 +428,14 @@ def select_recipes(cat: Catalog, req: PlanRequest, required: int) -> Tuple[Set[s
             new_cost = cart_cost(cat, new_need, req.assume_staples)
             if new_cost > req.budget + 1e-9:
                 continue
-            meals_delta = sum(cat.recipes[x].meals for x in add)
+            meals_delta = covered(cat, new_sel, req) - base_cov
+            if meals_delta <= 0:
+                continue
             new_ing = len({x for x in set(new_need) - base_ing if not cat.ingredients[x].staple})
-            score = meals_delta / ((new_cost - base_cost) + INGREDIENT_WEIGHT * new_ing + 0.01)
+            score = meals_delta / (t["cost"] * (new_cost - base_cost) + t["ingredient"] * new_ing + 0.01)
             score *= preference_multiplier(r, req)
             if any(bal.get(c, 0) >= q for c, q in r.consumes):
-                score *= CHAIN_BONUS
+                score *= t["chain"]
             if score > best_score:
                 best, best_score = add, score
 
@@ -427,22 +469,46 @@ def ensure_must_have(cat: Catalog, allowed: Dict[str, Recipe], req: PlanRequest,
     return selected
 
 
+def week_value(cat: Catalog, req: PlanRequest, sel: Set[str]) -> Tuple[float, float]:
+    """(value, cost). Lower value is better: cost and distinct ingredients, less what the dishes you'd prefer are worth.
+    Without this the cleanup pass would swap every preferred dish for the cheapest one and undo the answers."""
+    t = tuning(req)
+    need = cart(cat, sel, req.servings)
+    cost = cart_cost(cat, need, req.assume_staples)
+    distinct = len([x for x in need if not cat.ingredients[x].staple])
+    pref = sum((preference_multiplier(cat.recipes[r], req) - 1.0) * cat.recipes[r].meals for r in sel)
+    value = t["cost"] * cost + t["ingredient"] * distinct - PREFERENCE_DOLLARS * pref
+    if "waste" in req.goals:
+        value += 1.5 * waste_estimate(cat, sel, need, req.servings)[0]          # leftover perishables, in dollars
+    if "learn" in req.goals:
+        value -= 5.0 * len({x for r in sel if cat.recipes[r].meals > 0 for x in cat.recipes[r].techniques})   # more to practise
+    return value, cost
+
+
 def local_search(cat: Catalog, req: PlanRequest, allowed: Dict[str, Recipe], selected: Set[str], required: int) -> Set[str]:
     pinned = set(req.pinned_recipe_ids)
     must_ok = lambda sel: all(any(any(i == ing for i, _ in cat.recipes[r].ingredients) for r in sel) for ing in req.must_have if any(any(i == ing for i, _ in cat.recipes[r].ingredients) for r in selected))
+    target = min(required, covered(cat, selected, req))
+
+    def served(sel: Set[str]) -> int:
+        """Meals the week can really serve once cook days and keep-by days are applied, not just portions on paper."""
+        sessions, session_of, _ = schedule(cat, req, sel)
+        return required - assign_meals(cat, req, sel, sessions, session_of)[1]
+
+    floor = served(selected)
     improved, rounds = True, 0
     while improved and rounds < 20:
         improved = False
         rounds += 1
-        cur_cost = cart_cost(cat, cart(cat, selected, req.servings), req.assume_staples)
+        cur_val, _ = week_value(cat, req, selected)
         for rid in sorted(selected):
             if rid in pinned:
                 continue
             trial = selected - {rid}
-            if meals_of(cat, trial) >= required and feasible(cat, req, trial) and must_ok(trial):
-                c = cart_cost(cat, cart(cat, trial, req.servings), req.assume_staples)
-                if c < cur_cost:
-                    selected, cur_cost, improved = trial, c, True
+            if covered(cat, trial, req) >= target and feasible(cat, req, trial) and must_ok(trial):
+                if week_value(cat, req, trial)[0] < cur_val - 0.01 and served(trial) >= floor:
+                    selected, improved = trial, True
+                    floor = served(trial)
                     break
         if improved:
             continue
@@ -457,11 +523,12 @@ def local_search(cat: Catalog, req: PlanRequest, allowed: Dict[str, Recipe], sel
                 if add is None:
                     continue
                 trial = base | add
-                if meals_of(cat, trial) < required or not feasible(cat, req, trial) or not must_ok(trial):
+                if covered(cat, trial, req) < target or not feasible(cat, req, trial) or not must_ok(trial):
                     continue
-                c = cart_cost(cat, cart(cat, trial, req.servings), req.assume_staples)
-                if c < cur_cost - 0.01 and c <= req.budget:
-                    selected, cur_cost, improved = trial, c, True
+                v, c = week_value(cat, req, trial)
+                if v < cur_val - 0.01 and c <= req.budget and served(trial) >= floor:
+                    selected, improved = trial, True
+                    floor = served(trial)
                     break
             if improved:
                 break
@@ -530,28 +597,70 @@ def schedule(cat: Catalog, req: PlanRequest, selected: Set[str]):
 
 
 def assign_meals(cat: Catalog, req: PlanRequest, selected: Set[str], sessions: List[dict], session_of: Dict[str, int]):
-    portions = []
+    """Portions into slots. Breakfast slots take breakfast food and nothing else does.
+    First every slot takes the portion that spoils soonest, which covers the most meals possible.
+    Then portions are swapped between days, only where both stay inside their keep-by day, until
+    lunch and dinner are different dishes and back-to-back meals differ wherever the week allows."""
+    portions = []   # (last day it's good, first day it's ready, recipe id)
     for rid in selected:
         r = cat.recipes[rid]
         day = sessions[session_of[rid]]["day"]
-        for _ in range(r.meals):
-            portions.append([day + r.keeps_days, day, rid])
-    meals, unfilled = [], 0
+        portions += [(day + r.keeps_days, day, rid) for _ in range(r.meals)]
+    meals: List[dict] = []
+    got: List[Optional[tuple]] = []
+    unfilled = 0
     for s in slot_list(req):
-        day, slot = s["day"], s["slot"]
-        base = {"day": day, "label": req.day_label(day), "slot": slot, "recipe_id": None, "from_session": None, "skipped": s["skipped"], "reason": s["reason"]}
-        if s["skipped"]:
-            meals.append(base)
-            continue
-        avail = [p for p in portions if p[1] <= day <= p[0]]
+        base = {"day": s["day"], "label": req.day_label(s["day"]), "slot": s["slot"], "recipe_id": None, "from_session": None,
+                "skipped": s["skipped"], "reason": s["reason"]}
+        breakfast = s["slot"] == "breakfast"
+        avail = [] if s["skipped"] else [p for p in portions if p[1] <= s["day"] <= p[0] and is_breakfast(cat.recipes[p[2]]) == breakfast]
         if not avail:
-            unfilled += 1
+            unfilled += 0 if s["skipped"] else 1
             meals.append(base)
+            got.append(None)
             continue
-        avail.sort(key=lambda p: (p[0], p[2]))
-        p = avail[0]
+        p = min(avail, key=lambda p: (p[0], p[2]))
         portions.remove(p)
         meals.append({**base, "recipe_id": p[2], "from_session": session_of[p[2]]})
+        got.append(p)
+
+    def clashes() -> int:
+        ids = [m["recipe_id"] for m in meals]
+        n = sum(1 for i in range(1, len(ids)) if ids[i] and ids[i] == ids[i - 1])          # back to back
+        per_day: Dict[int, List[str]] = {}
+        for m in meals:
+            if m["recipe_id"]:
+                per_day.setdefault(m["day"], []).append(m["recipe_id"])
+        return n + 3 * sum(len(v) - len(set(v)) for v in per_day.values())                   # twice in one day
+
+    def swap(i: int, j: int) -> None:
+        got[i], got[j] = got[j], got[i]
+        for k in (i, j):
+            rid = got[k][2]
+            meals[k]["recipe_id"], meals[k]["from_session"] = rid, session_of[rid]
+
+    current = clashes()
+    for _ in range(60):
+        if current == 0:
+            break
+        best = None
+        for i in range(len(meals)):
+            for j in range(i + 1, len(meals)):
+                pi, pj = got[i], got[j]
+                if pi is None or pj is None or pi[2] == pj[2] or (meals[i]["slot"] == "breakfast") != (meals[j]["slot"] == "breakfast"):
+                    continue
+                di, dj = meals[i]["day"], meals[j]["day"]
+                if not (pj[1] <= di <= pj[0] and pi[1] <= dj <= pi[0]):
+                    continue
+                swap(i, j)
+                after = clashes()
+                swap(i, j)
+                if after < current and (best is None or after < best[0]):
+                    best = (after, i, j)
+        if best is None:
+            break
+        swap(best[1], best[2])
+        current = best[0]
     return meals, unfilled
 
 
@@ -653,6 +762,76 @@ def explanations(cat, req, selected, sessions, session_of, perish, total, meals)
     return out
 
 
+GOAL_EFFECT = {
+    "save": "Every extra dollar weighs 50% more in each choice, so this is the cheapest week that covers your meals.",
+    "waste": "Leftover perishables count against a plan, and dishes that reuse an earlier cook are favoured.",
+    "health": "Light, high-fibre, and high-protein dishes are favoured.",
+    "learn": "Weeks that practise more different techniques are favoured.",
+}
+
+
+def considered(cat: Catalog, req: PlanRequest, selected: Set[str], sessions: List[dict], meals: List[dict], total: float,
+               required: int, unfilled: int) -> List[dict]:
+    """One line per onboarding answer: what it did to this week, with numbers from the plan itself."""
+    out: List[dict] = []
+    add = lambda key, effect: out.append({"key": key, "effect": effect})
+    pool = [r for r in cat.recipes.values() if r.meals > 0]
+    dishes = [cat.recipes[r] for r in selected if cat.recipes[r].meals > 0]
+    plural = lambda n, w: f"{n} {w}{'' if n == 1 else 's'}"
+
+    add("servings", f"Every amount and the shopping list are sized for {plural(req.servings, 'person') if req.servings == 1 else f'{req.servings} people'}.")
+    ex = set(req.exclude_tags)
+    def tags_of(r):
+        return set(r.tags) | {t for i, _ in r.ingredients if i in cat.ingredients for t in cat.ingredients[i].tags}
+    ruled = [r for r in pool if ex & tags_of(r)]
+    add("diet", f"{len(ruled)} of {len(pool)} recipes ruled out, so nothing you avoid can be planned." if ex else f"All {len(pool)} recipes are on the table.")
+    if req.exclude_ingredients:
+        n = sum(1 for r in pool if any(i in req.exclude_ingredients for i, _ in r.ingredients))
+        add("wont_eat", f"{plural(n, 'more recipe')} ruled out for containing them." if n else "None of the recipes use them.")
+    for ing in req.must_have:
+        if ing not in cat.ingredients:
+            continue
+        users = [r.name for r in dishes if any(i == ing for i, _ in r.ingredients)]
+        add("must_have", f"{cat.ingredients[ing].name}: in " + ", ".join(users) + "." if users else f"{cat.ingredients[ing].name}: couldn't fit it inside your limits this week.")
+    if req.likes:
+        match = [r.name for r in dishes if set(r.moods) & set(req.likes)]
+        add("likes", f"{len(match)} of {len(dishes)} dishes match" + (": " + ", ".join(match[:4]) + "." if match else "."))
+    longest = max((s["active_minutes"] for s in sessions), default=0)
+    add("skill", f"Each cook is capped at {req.max_active_minutes_per_session} minutes hands-on. Your longest is {longest}.")
+    missing = [r for r in pool if r.equipment and not set(r.equipment) <= set(req.equipment)]
+    add("kitchen", (f"{plural(len(missing), 'recipe')} {'needs' if len(missing) == 1 else 'need'} equipment you don't have, so "
+                    f"{'it is' if len(missing) == 1 else 'they are'} out.") if missing else "Every recipe works with your kitchen.")
+    served = required - unfilled
+    add("budget", f"${total:.2f} of ${req.budget:.0f}" + (f", about ${total / served:.2f} a meal." if served else "."))
+    add("sessions", f"{plural(len(sessions), 'cook')}: " + ", ".join(s["label"] for s in sessions) + ".")
+    b_slots = sum(1 for m in meals if m["slot"] == "breakfast" and not m["skipped"])
+    add("meals", f"{served} of {required} meals covered" + (f", breakfasts only from breakfast dishes." if b_slots else "."))
+    days = {}
+    for m in meals:
+        if m["recipe_id"] and m["slot"] != "breakfast":
+            days.setdefault(m["day"], []).append(m["recipe_id"])
+    two = [ids for ids in days.values() if len(ids) >= 2]
+    if two:
+        add("variety", f"Lunch and dinner are different dishes on {sum(1 for ids in two if len(set(ids)) == len(ids))} of {len(two)} days.")
+    for g in req.goals:
+        if g in GOAL_EFFECT:
+            extra = ""
+            if g == "health":
+                n = sum(1 for r in dishes if set(r.moods) & {"light", "high_fiber", "high_protein"})
+                extra = f" {n} of {len(dishes)} this week."
+            elif g == "learn":
+                tech = sorted({t for r in dishes for t in r.techniques})
+                extra = f" This week practises {len(tech)}: {', '.join(tech)}." if tech else ""
+            add(f"goal_{g}", GOAL_EFFECT[g] + extra)
+    skipped = sum(1 for m in meals if m["skipped"])
+    if req.skip_slots:
+        add("calendar", f"{plural(skipped, 'meal')} left open for plans on your calendar.")
+    for pid in req.pinned_recipe_ids:
+        if pid in cat.recipes:
+            add("pinned", f"{cat.recipes[pid].name}: " + ("in the week." if pid in selected else "doesn't fit your limits this week."))
+    return out
+
+
 # ------------------------------------------------------------------ run ----
 
 def _run(req: PlanRequest, cat: Catalog):
@@ -720,4 +899,5 @@ def plan(req: PlanRequest, base: Catalog = CATALOG) -> dict:
         "graph": build_graph(cat, selected, session_of, need),
         "explanations": explanations(cat, req, selected, sessions, session_of, perish, total, meals),
         "warnings": warnings + notes,
+        "considered": considered(cat, req, selected, sessions, meals, total, required, unfilled),
     }

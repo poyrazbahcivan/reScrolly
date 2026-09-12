@@ -1,8 +1,7 @@
 import SwiftUI
 
-/// The grocery list, made to feel like the paper one. Cream sheet, ruled rows,
-/// square checkboxes, quantities on the right, total at the bottom.
-/// Shares as a PDF that looks the same.
+/// The grocery list as a checklist grouped by aisle, with progress on top.
+/// Sharing lives in the toolbar; the PDF is the paper-style list below.
 struct ShopView: View {
     @EnvironmentObject var state: AppState
     @State private var pdfURL: URL?
@@ -10,37 +9,145 @@ struct ShopView: View {
     var body: some View {
         Screen {
             if let plan = state.plan {
-                ScrollView {
-                    VStack(spacing: 16) {
-                        PaperList(plan: plan, servings: state.profile.servings, checked: state.checked, onToggle: { state.toggleChecked($0) })
-                        HStack(spacing: 10) {
-                            if let url = pdfURL {
-                                ShareLink(item: url) {
-                                    HStack(spacing: 8) { Image(systemName: "square.and.arrow.up"); Text("Share as PDF").font(.body.weight(.medium)) }
-                                        .frame(maxWidth: .infinity).frame(height: 52).foregroundStyle(Theme.ink)
-                                        .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.radius, style: .continuous))
-                                        .overlay(RoundedRectangle(cornerRadius: Theme.radius, style: .continuous).stroke(Theme.line, lineWidth: 1))
+                let buy = plan.shopping.filter { $0.section != "Check your pantry" }
+                let done = buy.filter { state.checked.contains($0.id) }.count
+                List {
+                    Section {
+                        ShopHeader(plan: plan, done: done, total: buy.count)
+                            .listRowInsets(EdgeInsets())
+                            .listRowBackground(Color.clear)
+                    }
+                    ForEach(sections(plan), id: \.self) { sec in
+                        Section {
+                            ForEach(plan.shopping.filter { $0.section == sec }) { item in
+                                ShopRow(item: item, checked: state.checked.contains(item.id)) {
+                                    withAnimation(.snappy) { state.toggleChecked(item.id) }
                                 }
-                            } else {
-                                SecondaryButton(title: "Share as PDF", systemImage: "square.and.arrow.up") { pdfURL = PaperList.renderPDF(plan: plan, servings: state.profile.servings) }
                             }
-                            SecondaryButton(title: "Copy as text", systemImage: "doc.on.doc") { UIPasteboard.general.string = PaperList.plainText(plan: plan, servings: state.profile.servings) }
-                        }
-                        if !state.checked.isEmpty {
-                            TextButton(title: "Clear checkmarks") { for id in state.checked { state.toggleChecked(id) } }
+                        } header: {
+                            Label(sec, systemImage: Self.icon(sec))
+                                .font(.footnote.weight(.semibold))
+                                .foregroundStyle(Theme.ink2)
+                                .textCase(nil)
                         }
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(16)
+                }
+                .listStyle(.insetGrouped)
+                .scrollContentBackground(.hidden)
+                .task(id: "\(plan.totalCost)-\(state.units.rawValue)") {
+                    pdfURL = PaperList.renderPDF(plan: plan, servings: state.profile.servings)
                 }
             }
         }
-        .navigationTitle("Shop")
-        .navigationBarTitleDisplayMode(.inline)
-        .onChange(of: state.plan?.totalCost) { _, _ in pdfURL = nil }
+        .navigationTitle("Groceries")
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Menu {
+                    if let url = pdfURL {
+                        ShareLink(item: url) { Label("Share as PDF", systemImage: "doc.richtext") }
+                    }
+                    if let plan = state.plan {
+                        Button { UIPasteboard.general.string = PaperList.plainText(plan: plan, servings: state.profile.servings) } label: {
+                            Label("Copy as text", systemImage: "doc.on.doc")
+                        }
+                    }
+                    if !state.checked.isEmpty {
+                        Button(role: .destructive) { for id in state.checked { state.toggleChecked(id) } } label: {
+                            Label("Clear checkmarks", systemImage: "arrow.uturn.backward")
+                        }
+                    }
+                } label: {
+                    Label("Share", systemImage: "square.and.arrow.up")
+                }
+                .disabled(state.plan == nil)
+            }
+        }
+    }
+
+    private func sections(_ plan: Plan) -> [String] {
+        var seen: [String] = []
+        for i in plan.shopping where !seen.contains(i.section) { seen.append(i.section) }
+        return seen
+    }
+
+    static func icon(_ section: String) -> String {
+        switch section {
+        case "Produce": return "carrot"
+        case "Meat": return "fork.knife"
+        case "Seafood": return "fish"
+        case "Dairy & Eggs": return "cup.and.saucer"
+        case "Bakery": return "birthday.cake"
+        case "Frozen": return "snowflake"
+        case "Pantry": return "shippingbox"
+        case "Check your pantry": return "checklist"
+        default: return "bag"
+        }
     }
 }
 
+struct ShopHeader: View {
+    let plan: Plan
+    let done: Int
+    let total: Int
+
+    var body: some View {
+        HStack(spacing: 16) {
+            RingGauge(progress: total == 0 ? 0 : Double(done) / Double(total), lineWidth: 8) {
+                VStack(spacing: 0) {
+                    Text("\(done)").font(.title3.weight(.semibold).monospacedDigit()).foregroundStyle(Theme.ink)
+                    Text("of \(total)").font(.caption2).foregroundStyle(Theme.ink3)
+                }
+            }
+            .frame(width: 78, height: 78)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(Fmt.money(plan.totalCost)).font(.system(size: 28, weight: .semibold).monospacedDigit()).foregroundStyle(Theme.ink)
+                Text("\(total) items, one trip · \(Fmt.money0(plan.request.budget)) budget").font(.subheadline).foregroundStyle(Theme.ink2)
+                if total > 0 && done == total {
+                    Label("Everything's in the cart", systemImage: "checkmark.seal.fill").font(.caption.weight(.semibold)).foregroundStyle(Theme.accent)
+                }
+            }
+            Spacer(minLength: 0)
+        }
+        .padding(16)
+        .cardStyle(radius: 18)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(done) of \(total) items checked. Total \(Fmt.money(plan.totalCost)).")
+    }
+}
+
+struct ShopRow: View {
+    let item: ShopItem
+    let checked: Bool
+    let toggle: () -> Void
+
+    var body: some View {
+        Button(action: toggle) {
+            HStack(spacing: 12) {
+                Image(systemName: checked ? "checkmark.circle.fill" : "circle")
+                    .font(.title3)
+                    .foregroundStyle(checked ? Theme.accent : Theme.ink3)
+                    .contentTransition(.symbolEffect(.replace))
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(item.name).foregroundStyle(checked ? Theme.ink3 : Theme.ink).strikethrough(checked, color: Theme.ink3)
+                    Text(detail).font(.caption).foregroundStyle(Theme.ink3)
+                }
+                Spacer(minLength: 8)
+                Text(item.cost > 0 ? Fmt.money(item.cost) : "have").font(.subheadline.monospacedDigit()).foregroundStyle(Theme.ink2)
+            }
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .sensoryFeedback(.selection, trigger: checked)
+        .accessibilityAddTraits(checked ? .isSelected : [])
+    }
+
+    private var detail: String {
+        if item.section == "Check your pantry" { return "needs \(Fmt.shopQty(item.qtyNeeded, item.unit))" }
+        return PaperList.packs(item) + (item.perishable ? " · perishable" : "")
+    }
+}
+
+/// The grocery list made to look like the paper one. Used for the PDF.
 struct PaperList: View {
     let plan: Plan
     let servings: Int
@@ -59,7 +166,6 @@ struct PaperList: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            // header
             VStack(alignment: .leading, spacing: 6) {
                 HStack(alignment: .firstTextBaseline) {
                     Text("Groceries").font(.system(size: 26, weight: .semibold)).foregroundStyle(Theme.ink)
@@ -75,26 +181,21 @@ struct PaperList: View {
                 Text(sec.uppercased()).font(.system(size: 11, weight: .semibold)).tracking(1.2).foregroundStyle(Theme.ink3)
                     .padding(.horizontal, 22).padding(.top, 18).padding(.bottom, 6)
                 ForEach(plan.shopping.filter { $0.section == sec }) { item in
-                    Button { onToggle?(item.id) } label: {
-                        HStack(alignment: .firstTextBaseline, spacing: 12) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 3).stroke(Theme.ink2, lineWidth: 1.2).frame(width: 16, height: 16)
-                                if checked.contains(item.id) { Image(systemName: "checkmark").font(.system(size: 11, weight: .bold)).foregroundStyle(Theme.accent) }
-                            }
-                            .padding(.top, 2)
-                            VStack(alignment: .leading, spacing: 1) {
-                                Text(item.name).font(.system(size: 16)).foregroundStyle(checked.contains(item.id) ? Theme.ink3 : Theme.ink)
-                                    .strikethrough(checked.contains(item.id), color: Theme.ink3)
-                                Text(detail(item)).font(.system(size: 12)).foregroundStyle(Theme.ink3)
-                            }
-                            Spacer()
-                            Text(item.cost > 0 ? Fmt.money(item.cost) : "have").font(.system(size: 14).monospacedDigit()).foregroundStyle(Theme.ink2)
+                    HStack(alignment: .firstTextBaseline, spacing: 12) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 3).stroke(Theme.ink2, lineWidth: 1.2).frame(width: 16, height: 16)
+                            if checked.contains(item.id) { Image(systemName: "checkmark").font(.system(size: 11, weight: .bold)).foregroundStyle(Theme.accent) }
                         }
-                        .padding(.horizontal, 22).padding(.vertical, 9)
-                        .overlay(alignment: .bottom) { Rectangle().fill(Self.rule.opacity(0.7)).frame(height: 0.8).padding(.horizontal, 22) }
+                        .padding(.top, 2)
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(item.name).font(.system(size: 16)).foregroundStyle(Theme.ink)
+                            Text(detail(item)).font(.system(size: 12)).foregroundStyle(Theme.ink3)
+                        }
+                        Spacer()
+                        Text(item.cost > 0 ? Fmt.money(item.cost) : "have").font(.system(size: 14).monospacedDigit()).foregroundStyle(Theme.ink2)
                     }
-                    .buttonStyle(.plain)
-                    .disabled(onToggle == nil)
+                    .padding(.horizontal, 22).padding(.vertical, 9)
+                    .overlay(alignment: .bottom) { Rectangle().fill(Self.rule.opacity(0.7)).frame(height: 0.8).padding(.horizontal, 22) }
                 }
             }
 
@@ -109,23 +210,28 @@ struct PaperList: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Self.paper, in: RoundedRectangle(cornerRadius: forPrint ? 0 : 6, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: forPrint ? 0 : 6, style: .continuous).stroke(Self.rule, lineWidth: forPrint ? 0 : 1))
-        .shadow(color: forPrint ? .clear : .black.opacity(0.05), radius: 8, y: 3)
     }
 
     private var weekLabel: String {
-        let start = UserDefaults.standard.object(forKey: "plan_started") as? Date ?? Date()
         let f = DateFormatter(); f.dateFormat = "MMM d"
-        let end = Calendar.current.date(byAdding: .day, value: 6, to: start) ?? start
-        return "\(f.string(from: start)) – \(f.string(from: end))"
+        return "\(f.string(from: PlanClock.date(0))) – \(f.string(from: PlanClock.date(6)))"
     }
 
     private func detail(_ i: ShopItem) -> String {
-        if i.section == "Check your pantry" { return "needs \(Fmt.qty(i.qtyNeeded, i.unit))" }
-        return "\(i.packs) \(i.packs == 1 ? "pack" : "packs") · \(Fmt.qty(i.qtyNeeded, i.unit))" + (i.perishable ? " · perishable" : "")
+        if i.section == "Check your pantry" { return "needs \(Fmt.shopQty(i.qtyNeeded, i.unit))" }
+        return Self.packs(i) + " · uses \(Fmt.shopQty(i.qtyNeeded, i.unit))" + (i.perishable ? " · perishable" : "")
     }
 
-    // MARK: export
+    /// How much to pick up, in words a shopper uses: "2 packs of 5", "1 loaf, 20 slices", "2 × 1.1 lb".
+    static func packs(_ i: ShopItem) -> String {
+        let n = i.packs
+        switch i.unit {
+        case "ea": return i.packQty == 1 ? "\(n)" : "\(n) \(n == 1 ? "pack" : "packs") of \(Int(i.packQty))"
+        case "slice": return "\(n) \(n == 1 ? "loaf" : "loaves"), \(Int(i.packQty)) slices each"
+        case "bunch": let total = Int(Double(n) * i.packQty); return "\(total) \(total == 1 ? "bunch" : "bunches")"
+        default: return n == 1 ? Fmt.shopQty(i.packQty, i.unit) : "\(n) × \(Fmt.shopQty(i.packQty, i.unit))"
+        }
+    }
 
     static func plainText(plan: Plan, servings: Int) -> String {
         var out = "Groceries" + (servings > 1 ? " (for \(servings))" : "") + "\n"
@@ -134,7 +240,7 @@ struct PaperList: View {
         for sec in seen {
             out += "\n\(sec)\n"
             for i in plan.shopping where i.section == sec {
-                out += "  [ ] \(i.name)  \(i.packs) x \(Fmt.qty(i.packQty, i.unit))" + (i.cost > 0 ? "  \(Fmt.money(i.cost))" : "") + "\n"
+                out += "  [ ] \(i.name)  \(packs(i))" + (i.cost > 0 ? "  \(Fmt.money(i.cost))" : "") + "\n"
             }
         }
         out += "\nTotal \(Fmt.money(plan.totalCost))\n"

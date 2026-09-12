@@ -28,6 +28,7 @@ class PlanRequestModel(BaseModel):
     likes: List[str] = []
     pinned_recipe_ids: List[str] = []
     only_my_recipes: bool = False
+    goals: List[str] = []
 
 
 class SavePlanModel(BaseModel):

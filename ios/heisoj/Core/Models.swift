@@ -92,6 +92,7 @@ struct PlanRequest: Codable, Equatable {
     var likes: [String] = []
     var pinnedRecipeIds: [String] = []
     var onlyMyRecipes: Bool = false
+    var goals: [String] = []
 }
 
 // MARK: - Plan
@@ -117,6 +118,7 @@ struct Plan: Codable {
     var explanations: [String]
     var warnings: [String]
     var solveMs: Double?
+    var considered: [Consideration]?
 
     func recipe(_ id: String?) -> PlanRecipe? { recipes.first { $0.id == id } }
     var sessionDays: Set<Int> { Set(sessions.map(\.day)) }
@@ -149,6 +151,7 @@ struct PlanRecipe: Codable, Identifiable {
     var source: String?
     var moods: [String]?
     var pinned: Bool?
+    var tags: [String]?
     var isMine: Bool { (source ?? "catalog") != "catalog" }
 }
 
@@ -166,6 +169,8 @@ struct ShopItem: Codable, Identifiable {
 
 struct Perishable: Codable, Identifiable { var id: String; var name: String; var shelfLifeDays: Int; var lastUsedDay: Int; var ok: Bool }
 struct Graph: Codable { var nodes: [GNode]; var edges: [GEdge] }
+/// One onboarding answer and what it did to the plan, measured by the planner.
+struct Consideration: Codable, Hashable { var key: String; var effect: String }
 struct GNode: Codable, Identifiable { var id: String; var kind: String; var label: String; var session: Int?; var meals: Int? }
 struct GEdge: Codable, Hashable { var from: String; var to: String; var label: String }
 

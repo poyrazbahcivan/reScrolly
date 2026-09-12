@@ -112,10 +112,10 @@
     "poultry"
    ],
    "steps": [
-    "Heat the oven to 425\u00b0F.",
+    "Heat the oven to 425°F.",
     "Pat the chicken dry, rub with oil, salt, pepper, and crushed garlic.",
     "Cut potatoes into chunks, toss with oil and salt, spread on the sheet pan.",
-    "Set the chicken on top of the potatoes. Roast 65 minutes until the thigh reads 165\u00b0F.",
+    "Set the chicken on top of the potatoes. Roast 65 minutes until the thigh reads 165°F.",
     "Eat two portions with potatoes. Pull the remaining meat off the bones and refrigerate. Keep the carcass."
    ],
    "moods": [
@@ -233,7 +233,7 @@
     "gluten"
    ],
    "steps": [
-    "Dice the onion. Saut\u00e9 in a little oil until soft.",
+    "Dice the onion. Sauté in a little oil until soft.",
     "Add the shredded chicken, cumin, paprika, and a splash of water. Warm through.",
     "Warm the tortillas in a dry pan.",
     "Fill with chicken, top with cilantro and lime."
@@ -362,7 +362,7 @@
     "gluten"
    ],
    "steps": [
-    "Dice onion and carrot. Saut\u00e9 in the pot 5 minutes.",
+    "Dice onion and carrot. Sauté in the pot 5 minutes.",
     "Add the stock, bring to a boil.",
     "Add pasta, cook 9 minutes.",
     "Add chicken, salt to taste, warm through."
@@ -639,7 +639,7 @@
    ],
    "tags": [],
    "steps": [
-    "Dice onion, saut\u00e9 in oil until soft. Add sliced garlic 1 minute.",
+    "Dice onion, sauté in oil until soft. Add sliced garlic 1 minute.",
     "Add crushed tomatoes, salt, chili. Simmer 30 minutes, stirring now and then."
    ],
    "moods": [
@@ -743,7 +743,7 @@
     "gluten"
    ],
    "steps": [
-    "Saut\u00e9 sliced pepper 5 minutes. Add sauce and cumin, simmer 3 minutes.",
+    "Sauté sliced pepper 5 minutes. Add sauce and cumin, simmer 3 minutes.",
     "Make four wells. Crack an egg into each. Cover, cook 6 minutes.",
     "Serve with bread."
    ],
@@ -918,7 +918,7 @@
    ],
    "tags": [],
    "steps": [
-    "Oven to 425\u00b0F. Chop everything into similar-sized pieces.",
+    "Oven to 425°F. Chop everything into similar-sized pieces.",
     "Toss with oil, salt, paprika. Spread on the sheet pan without crowding.",
     "Roast 30 minutes, flip halfway."
    ],
@@ -1163,7 +1163,7 @@
    ],
    "tags": [],
    "steps": [
-    "Saut\u00e9 diced onion, garlic, ginger 5 minutes. Add curry powder 1 minute.",
+    "Sauté diced onion, garlic, ginger 5 minutes. Add curry powder 1 minute.",
     "Add lentils, coconut milk, and 800 ml water. Simmer 25 minutes until soft. Salt."
    ],
    "moods": [
@@ -1660,7 +1660,7 @@
     "dairy"
    ],
    "steps": [
-    "Prick potatoes, rub with salt. Bake at 400\u00b0F for 55 minutes.",
+    "Prick potatoes, rub with salt. Bake at 400°F for 55 minutes.",
     "Split, butter, load with warm beans, cheese, a spoon of yogurt."
    ],
    "moods": [
@@ -1723,7 +1723,7 @@
    ],
    "tags": [],
    "steps": [
-    "Saut\u00e9 onion and garlic. Curry powder 1 minute.",
+    "Sauté onion and garlic. Curry powder 1 minute.",
     "Add chickpeas and coconut milk. Simmer 15 minutes.",
     "Stir in spinach. Serve over rice."
    ],
@@ -1731,6 +1731,502 @@
     "spicy",
     "one_pot",
     "high_fiber"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "yogurt_bowls",
+   "name": "Yogurt, oat and banana bowls",
+   "meals": 3,
+   "active_minutes": 5,
+   "total_minutes": 5,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "yogurt",
+     "qty": 450
+    },
+    {
+     "id": "oats",
+     "qty": 90
+    },
+    {
+     "id": "banana",
+     "qty": 3
+    },
+    {
+     "id": "peanut_butter",
+     "qty": 45
+    }
+   ],
+   "consumes": [],
+   "produces": [],
+   "equipment": [],
+   "techniques": [
+    "assemble"
+   ],
+   "tags": [
+    "dairy",
+    "nuts"
+   ],
+   "steps": [
+    "Spoon 150 g yogurt into each of three containers.",
+    "Top each with 30 g oats and a spoon of peanut butter.",
+    "Slice a banana over one just before eating."
+   ],
+   "moods": [
+    "breakfast",
+    "quick",
+    "light"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "egg_muffins",
+   "name": "Spinach and cheese egg muffins",
+   "meals": 4,
+   "active_minutes": 15,
+   "total_minutes": 40,
+   "keeps_days": 4,
+   "ingredients": [
+    {
+     "id": "eggs",
+     "qty": 10
+    },
+    {
+     "id": "spinach",
+     "qty": 120
+    },
+    {
+     "id": "cheddar",
+     "qty": 80
+    },
+    {
+     "id": "bell_pepper",
+     "qty": 1
+    },
+    {
+     "id": "salt",
+     "qty": 3
+    },
+    {
+     "id": "pepper",
+     "qty": 1
+    }
+   ],
+   "consumes": [],
+   "produces": [],
+   "equipment": [
+    "oven",
+    "sheet_pan"
+   ],
+   "techniques": [
+    "bake",
+    "whisk"
+   ],
+   "tags": [
+    "eggs",
+    "dairy"
+   ],
+   "steps": [
+    "Heat the oven to 180°C.",
+    "Whisk eggs with salt and pepper. Chop spinach and pepper, grate the cheese, stir everything in.",
+    "Pour into a greased muffin tin or small foil cups on the sheet pan.",
+    "Bake 20 to 25 minutes until set. Cool and refrigerate; reheat 30 seconds."
+   ],
+   "moods": [
+    "breakfast",
+    "high_protein",
+    "batch"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "breakfast_burritos",
+   "name": "Egg and bean breakfast burritos",
+   "meals": 4,
+   "active_minutes": 15,
+   "total_minutes": 20,
+   "keeps_days": 4,
+   "ingredients": [
+    {
+     "id": "tortillas",
+     "qty": 4
+    },
+    {
+     "id": "eggs",
+     "qty": 6
+    },
+    {
+     "id": "cheddar",
+     "qty": 60
+    },
+    {
+     "id": "salt",
+     "qty": 2
+    }
+   ],
+   "consumes": [
+    {
+     "id": "cooked_beans",
+     "qty": 250
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "scramble",
+    "assemble"
+   ],
+   "tags": [
+    "eggs",
+    "dairy",
+    "gluten"
+   ],
+   "steps": [
+    "Scramble the eggs with salt until just set.",
+    "Warm the beans in the same pan.",
+    "Fill tortillas with eggs, beans, and cheese. Roll tight.",
+    "Wrap each in foil and refrigerate. Reheat in a dry pan or the microwave."
+   ],
+   "moods": [
+    "breakfast",
+    "high_protein",
+    "batch"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "pb_banana_toast",
+   "name": "Peanut butter banana toast",
+   "meals": 2,
+   "active_minutes": 5,
+   "total_minutes": 5,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "bread",
+     "qty": 4
+    },
+    {
+     "id": "peanut_butter",
+     "qty": 60
+    },
+    {
+     "id": "banana",
+     "qty": 2
+    }
+   ],
+   "consumes": [],
+   "produces": [],
+   "equipment": [],
+   "techniques": [
+    "assemble"
+   ],
+   "tags": [
+    "gluten",
+    "nuts"
+   ],
+   "steps": [
+    "Toast two slices.",
+    "Spread with peanut butter.",
+    "Top with sliced banana."
+   ],
+   "moods": [
+    "breakfast",
+    "quick"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "chickpea_salad",
+   "name": "Chopped chickpea salad",
+   "meals": 2,
+   "active_minutes": 12,
+   "total_minutes": 12,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "chickpeas_can",
+     "qty": 400
+    },
+    {
+     "id": "tomato",
+     "qty": 2
+    },
+    {
+     "id": "bell_pepper",
+     "qty": 1
+    },
+    {
+     "id": "onion",
+     "qty": 1
+    },
+    {
+     "id": "lemon",
+     "qty": 1
+    },
+    {
+     "id": "olive_oil",
+     "qty": 30
+    },
+    {
+     "id": "salt",
+     "qty": 3
+    }
+   ],
+   "consumes": [],
+   "produces": [],
+   "equipment": [],
+   "techniques": [
+    "chop",
+    "assemble"
+   ],
+   "tags": [],
+   "steps": [
+    "Drain and rinse the chickpeas.",
+    "Chop tomato, pepper, and a quarter of the onion small.",
+    "Toss with lemon juice, olive oil, and salt. It keeps and gets better by day two."
+   ],
+   "moods": [
+    "light",
+    "high_fiber",
+    "quick"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "tuna_wraps",
+   "name": "Lemony tuna wraps",
+   "meals": 2,
+   "active_minutes": 8,
+   "total_minutes": 8,
+   "keeps_days": 2,
+   "ingredients": [
+    {
+     "id": "canned_tuna",
+     "qty": 280
+    },
+    {
+     "id": "yogurt",
+     "qty": 120
+    },
+    {
+     "id": "tortillas",
+     "qty": 4
+    },
+    {
+     "id": "spinach",
+     "qty": 60
+    },
+    {
+     "id": "lemon",
+     "qty": 1
+    }
+   ],
+   "consumes": [],
+   "produces": [],
+   "equipment": [],
+   "techniques": [
+    "assemble"
+   ],
+   "tags": [
+    "fish",
+    "dairy",
+    "gluten"
+   ],
+   "steps": [
+    "Mix drained tuna with yogurt and lemon juice.",
+    "Lay spinach on each tortilla, add the tuna, roll up."
+   ],
+   "moods": [
+    "quick",
+    "high_protein",
+    "light"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "peanut_noodles",
+   "name": "Peanut noodles with carrots",
+   "meals": 2,
+   "active_minutes": 15,
+   "total_minutes": 20,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "pasta",
+     "qty": 250
+    },
+    {
+     "id": "peanut_butter",
+     "qty": 80
+    },
+    {
+     "id": "soy_sauce",
+     "qty": 30
+    },
+    {
+     "id": "carrot",
+     "qty": 150
+    },
+    {
+     "id": "lime",
+     "qty": 1
+    },
+    {
+     "id": "garlic",
+     "qty": 2
+    },
+    {
+     "id": "ginger",
+     "qty": 15
+    }
+   ],
+   "consumes": [],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "boil",
+    "whisk"
+   ],
+   "tags": [
+    "gluten",
+    "nuts",
+    "soy"
+   ],
+   "steps": [
+    "Boil the pasta.",
+    "Whisk peanut butter, soy sauce, lime juice, grated garlic and ginger with a splash of the pasta water.",
+    "Grate the carrots.",
+    "Toss noodles, sauce, and carrots. Good warm or cold."
+   ],
+   "moods": [
+    "quick",
+    "spicy"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "chicken_broccoli_bowls",
+   "name": "Garlic chicken and broccoli bowls",
+   "meals": 2,
+   "active_minutes": 10,
+   "total_minutes": 15,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "broccoli",
+     "qty": 300
+    },
+    {
+     "id": "soy_sauce",
+     "qty": 20
+    },
+    {
+     "id": "garlic",
+     "qty": 1
+    }
+   ],
+   "consumes": [
+    {
+     "id": "cooked_chicken",
+     "qty": 300
+    },
+    {
+     "id": "cooked_rice",
+     "qty": 300
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "stir-fry"
+   ],
+   "tags": [
+    "meat",
+    "poultry",
+    "soy"
+   ],
+   "steps": [
+    "Cut broccoli into florets and stir-fry 5 minutes with a splash of water.",
+    "Add sliced garlic, the chicken, and soy sauce; heat through.",
+    "Serve over the rice."
+   ],
+   "moods": [
+    "high_protein",
+    "light",
+    "quick"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "broccoli_pasta",
+   "name": "Lemon broccoli pasta",
+   "meals": 2,
+   "active_minutes": 15,
+   "total_minutes": 20,
+   "keeps_days": 2,
+   "ingredients": [
+    {
+     "id": "pasta",
+     "qty": 250
+    },
+    {
+     "id": "broccoli",
+     "qty": 300
+    },
+    {
+     "id": "garlic",
+     "qty": 3
+    },
+    {
+     "id": "cheddar",
+     "qty": 60
+    },
+    {
+     "id": "lemon",
+     "qty": 1
+    },
+    {
+     "id": "olive_oil",
+     "qty": 20
+    },
+    {
+     "id": "chili_flakes",
+     "qty": 1
+    }
+   ],
+   "consumes": [],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "boil"
+   ],
+   "tags": [
+    "gluten",
+    "dairy"
+   ],
+   "steps": [
+    "Boil pasta; add broccoli florets for the last 3 minutes.",
+    "Drain, keeping a cup of the water.",
+    "Toss with olive oil, sliced garlic, lemon, chili flakes, cheese, and a splash of the water."
+   ],
+   "moods": [
+    "quick",
+    "light"
    ],
    "source": "catalog"
   }

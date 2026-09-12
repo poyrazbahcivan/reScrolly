@@ -53,6 +53,10 @@ struct ProfileView: View {
                 .onChange(of: state.profile.onlyMyRecipes) { _, _ in state.saveProfile() }
             }
 
+            Section("Preferences") {
+                RowLink(title: "Units", subtitle: "\(state.units.title) · \(state.units.subtitle)", systemImage: "ruler") { UnitsView() }
+            }
+
             Section("Plans") {
                 RowLink(title: "Saved weeks", systemImage: "tray.full") { SavedPlansView() }
                 Button {
@@ -326,5 +330,52 @@ struct ServerView: View {
         .scrollContentBackground(.hidden)
         .background(Theme.background)
         .navigationTitle("Server")
+    }
+}
+
+/// Metric or imperial. Changes every amount in the app, the shopping list, and oven temperatures in steps.
+struct UnitsView: View {
+    @EnvironmentObject var state: AppState
+
+    var body: some View {
+        Screen {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    StepHeader(title: "Units", subtitle: "Used everywhere: recipes, cooking steps, and the shopping list.")
+                    VStack(spacing: 10) {
+                        ForEach(UnitSystem.allCases) { u in
+                            ChoiceCard(title: u.title, subtitle: u.subtitle, systemImage: u.icon, selected: state.units == u) {
+                                withAnimation(.snappy) { state.units = u }
+                            }
+                        }
+                    }
+                    Card {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("How it looks").font(.headline).foregroundStyle(Theme.ink)
+                            example("Chicken thighs", Fmt.qty(680, "g"))
+                            example("Rice", Fmt.qty(1500, "g"))
+                            example("Olive oil", Fmt.qty(30, "ml"))
+                            example("Milk in a recipe", Fmt.qty(480, "ml"))
+                            example("Milk on the list", Fmt.shopQty(1900, "ml"))
+                            example("Oven", Fmt.text("220°C"))
+                        }
+                    }
+                    InlineNotice(text: "Prices and pack sizes stay the same. Only how amounts are written changes.")
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(24)
+            }
+        }
+        .navigationTitle("Units")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+
+    private func example(_ label: String, _ value: String) -> some View {
+        HStack {
+            Text(label).foregroundStyle(Theme.ink2)
+            Spacer()
+            Text(value).foregroundStyle(Theme.ink).monospacedDigit().contentTransition(.numericText())
+        }
+        .font(.subheadline)
     }
 }

@@ -34,6 +34,10 @@ final class AppState: ObservableObject {
     @Published var pinned: Set<String> = []
     @Published var checked: Set<String> = []
     @Published var showSavePrompt = false
+    /// Metric or imperial, everywhere. Stored on the phone; Fmt reads it.
+    @Published var units: UnitSystem = Fmt.units {
+        didSet { UserDefaults.standard.set(units.rawValue, forKey: "units") }
+    }
 
     // ui
     @Published var isLoading = false
@@ -107,7 +111,7 @@ final class AppState: ObservableObject {
             maxActiveMinutesPerSession: profile.maxActiveMinutes, assumeStaples: true,
             servings: profile.servings, startWeekday: weekday, skipSlots: skips,
             mustHave: profile.mustHave, likes: profile.likes,
-            pinnedRecipeIds: Array(pinned).sorted(), onlyMyRecipes: profile.onlyMyRecipes
+            pinnedRecipeIds: Array(pinned).sorted(), onlyMyRecipes: profile.onlyMyRecipes, goals: profile.goals
         )
     }
 

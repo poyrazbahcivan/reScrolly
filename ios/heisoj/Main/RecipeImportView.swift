@@ -274,7 +274,7 @@ struct RecipeImportView: View {
                             ForEach(Array(r.recipe.steps.enumerated()), id: \.offset) { i, s in
                                 HStack(alignment: .top, spacing: 10) {
                                     Text("\(i + 1)").font(.subheadline.monospacedDigit()).foregroundStyle(Theme.ink3).frame(width: 18)
-                                    Text(s).font(.subheadline).foregroundStyle(Theme.ink)
+                                    Text(Fmt.text(s)).font(.subheadline).foregroundStyle(Theme.ink)
                                 }
                             }
                         }
