@@ -1,0 +1,1738 @@
+{
+ "components": [
+  {
+   "id": "cooked_chicken",
+   "name": "Cooked chicken",
+   "unit": "g",
+   "keeps_days": 4
+  },
+  {
+   "id": "chicken_carcass",
+   "name": "Chicken carcass",
+   "unit": "ea",
+   "keeps_days": 2
+  },
+  {
+   "id": "cooked_rice",
+   "name": "Cooked rice",
+   "unit": "g",
+   "keeps_days": 4
+  },
+  {
+   "id": "cooked_beans",
+   "name": "Cooked black beans",
+   "unit": "g",
+   "keeps_days": 5
+  },
+  {
+   "id": "tomato_sauce",
+   "name": "Tomato sauce",
+   "unit": "g",
+   "keeps_days": 5
+  },
+  {
+   "id": "roast_veg",
+   "name": "Roasted vegetables",
+   "unit": "g",
+   "keeps_days": 4
+  },
+  {
+   "id": "chicken_stock",
+   "name": "Chicken stock",
+   "unit": "ml",
+   "keeps_days": 4
+  },
+  {
+   "id": "lentil_base",
+   "name": "Spiced lentils",
+   "unit": "g",
+   "keeps_days": 5
+  },
+  {
+   "id": "cooked_beef",
+   "name": "Cooked ground beef",
+   "unit": "g",
+   "keeps_days": 3
+  }
+ ],
+ "recipes": [
+  {
+   "id": "roast_chicken",
+   "name": "Roast chicken with potatoes",
+   "meals": 2,
+   "active_minutes": 20,
+   "total_minutes": 85,
+   "keeps_days": 4,
+   "ingredients": [
+    {
+     "id": "chicken_whole",
+     "qty": 1600
+    },
+    {
+     "id": "potato",
+     "qty": 700
+    },
+    {
+     "id": "olive_oil",
+     "qty": 30
+    },
+    {
+     "id": "salt",
+     "qty": 8
+    },
+    {
+     "id": "pepper",
+     "qty": 2
+    },
+    {
+     "id": "garlic",
+     "qty": 2
+    }
+   ],
+   "consumes": [],
+   "produces": [
+    {
+     "id": "cooked_chicken",
+     "qty": 650
+    },
+    {
+     "id": "chicken_carcass",
+     "qty": 1
+    }
+   ],
+   "equipment": [
+    "oven",
+    "sheet_pan"
+   ],
+   "techniques": [
+    "roast"
+   ],
+   "tags": [
+    "meat",
+    "poultry"
+   ],
+   "steps": [
+    "Heat the oven to 425\u00b0F.",
+    "Pat the chicken dry, rub with oil, salt, pepper, and crushed garlic.",
+    "Cut potatoes into chunks, toss with oil and salt, spread on the sheet pan.",
+    "Set the chicken on top of the potatoes. Roast 65 minutes until the thigh reads 165\u00b0F.",
+    "Eat two portions with potatoes. Pull the remaining meat off the bones and refrigerate. Keep the carcass."
+   ],
+   "moods": [
+    "comfort",
+    "high_protein",
+    "batch"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "chicken_stock",
+   "name": "Chicken stock",
+   "meals": 0,
+   "active_minutes": 10,
+   "total_minutes": 90,
+   "keeps_days": 4,
+   "ingredients": [
+    {
+     "id": "onion",
+     "qty": 1
+    },
+    {
+     "id": "carrot",
+     "qty": 150
+    },
+    {
+     "id": "salt",
+     "qty": 5
+    }
+   ],
+   "consumes": [
+    {
+     "id": "chicken_carcass",
+     "qty": 1
+    }
+   ],
+   "produces": [
+    {
+     "id": "chicken_stock",
+     "qty": 1200
+    }
+   ],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "simmer"
+   ],
+   "tags": [
+    "meat",
+    "poultry"
+   ],
+   "steps": [
+    "Put the carcass, a halved onion, and a chopped carrot in a pot.",
+    "Cover with water by 2 inches. Bring to a boil, then simmer 80 minutes.",
+    "Strain. Refrigerate."
+   ],
+   "moods": [
+    "batch"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "chicken_tacos",
+   "name": "Chicken tacos",
+   "meals": 2,
+   "active_minutes": 15,
+   "total_minutes": 15,
+   "keeps_days": 2,
+   "ingredients": [
+    {
+     "id": "tortillas",
+     "qty": 6
+    },
+    {
+     "id": "onion",
+     "qty": 1
+    },
+    {
+     "id": "cilantro",
+     "qty": 1
+    },
+    {
+     "id": "lime",
+     "qty": 2
+    },
+    {
+     "id": "cumin",
+     "qty": 4
+    },
+    {
+     "id": "paprika",
+     "qty": 4
+    }
+   ],
+   "consumes": [
+    {
+     "id": "cooked_chicken",
+     "qty": 300
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "saute",
+    "assemble"
+   ],
+   "tags": [
+    "meat",
+    "poultry",
+    "gluten"
+   ],
+   "steps": [
+    "Dice the onion. Saut\u00e9 in a little oil until soft.",
+    "Add the shredded chicken, cumin, paprika, and a splash of water. Warm through.",
+    "Warm the tortillas in a dry pan.",
+    "Fill with chicken, top with cilantro and lime."
+   ],
+   "moods": [
+    "quick",
+    "spicy",
+    "high_protein"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "chicken_fried_rice",
+   "name": "Chicken fried rice",
+   "meals": 2,
+   "active_minutes": 15,
+   "total_minutes": 15,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "eggs",
+     "qty": 2
+    },
+    {
+     "id": "frozen_peas",
+     "qty": 150
+    },
+    {
+     "id": "soy_sauce",
+     "qty": 30
+    },
+    {
+     "id": "garlic",
+     "qty": 2
+    },
+    {
+     "id": "olive_oil",
+     "qty": 15
+    }
+   ],
+   "consumes": [
+    {
+     "id": "cooked_chicken",
+     "qty": 250
+    },
+    {
+     "id": "cooked_rice",
+     "qty": 400
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "saute",
+    "scramble"
+   ],
+   "tags": [
+    "meat",
+    "poultry",
+    "eggs",
+    "soy",
+    "gluten"
+   ],
+   "steps": [
+    "Heat oil in the pan on high. Add garlic for 20 seconds.",
+    "Add cold rice, break it up, let it sit 2 minutes to crisp.",
+    "Push rice aside, scramble the eggs in the gap.",
+    "Add chicken, peas, soy sauce. Toss 2 minutes."
+   ],
+   "moods": [
+    "quick",
+    "one_pot",
+    "high_protein"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "chicken_noodle_soup",
+   "name": "Chicken soup",
+   "meals": 2,
+   "active_minutes": 15,
+   "total_minutes": 35,
+   "keeps_days": 4,
+   "ingredients": [
+    {
+     "id": "carrot",
+     "qty": 200
+    },
+    {
+     "id": "onion",
+     "qty": 1
+    },
+    {
+     "id": "pasta",
+     "qty": 120
+    },
+    {
+     "id": "salt",
+     "qty": 5
+    }
+   ],
+   "consumes": [
+    {
+     "id": "chicken_stock",
+     "qty": 1200
+    },
+    {
+     "id": "cooked_chicken",
+     "qty": 100
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "simmer"
+   ],
+   "tags": [
+    "meat",
+    "poultry",
+    "gluten"
+   ],
+   "steps": [
+    "Dice onion and carrot. Saut\u00e9 in the pot 5 minutes.",
+    "Add the stock, bring to a boil.",
+    "Add pasta, cook 9 minutes.",
+    "Add chicken, salt to taste, warm through."
+   ],
+   "moods": [
+    "comfort",
+    "one_pot"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "big_rice",
+   "name": "Pot of rice",
+   "meals": 0,
+   "active_minutes": 5,
+   "total_minutes": 25,
+   "keeps_days": 4,
+   "ingredients": [
+    {
+     "id": "rice",
+     "qty": 600
+    },
+    {
+     "id": "salt",
+     "qty": 3
+    }
+   ],
+   "consumes": [],
+   "produces": [
+    {
+     "id": "cooked_rice",
+     "qty": 1500
+    }
+   ],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "boil"
+   ],
+   "tags": [],
+   "steps": [
+    "Rinse the rice until the water runs mostly clear.",
+    "Add 1.5 times its volume in water and the salt. Bring to a boil.",
+    "Cover, lowest heat, 15 minutes. Off the heat, 5 minutes. Fluff.",
+    "Spread on a plate to cool fast, then refrigerate."
+   ],
+   "moods": [
+    "batch"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "black_beans",
+   "name": "Pot of black beans",
+   "meals": 0,
+   "active_minutes": 10,
+   "total_minutes": 100,
+   "keeps_days": 5,
+   "ingredients": [
+    {
+     "id": "black_beans_dry",
+     "qty": 450
+    },
+    {
+     "id": "onion",
+     "qty": 1
+    },
+    {
+     "id": "garlic",
+     "qty": 3
+    },
+    {
+     "id": "cumin",
+     "qty": 5
+    },
+    {
+     "id": "salt",
+     "qty": 8
+    }
+   ],
+   "consumes": [],
+   "produces": [
+    {
+     "id": "cooked_beans",
+     "qty": 1100
+    }
+   ],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "simmer"
+   ],
+   "tags": [],
+   "steps": [
+    "Rinse beans. Cover with 3 inches of water in the pot with the halved onion and garlic.",
+    "Boil, then simmer 90 minutes until soft. Top up water if needed.",
+    "Stir in cumin and salt in the last 10 minutes."
+   ],
+   "moods": [
+    "batch",
+    "high_fiber"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "bean_burritos",
+   "name": "Bean and rice burritos",
+   "meals": 2,
+   "active_minutes": 10,
+   "total_minutes": 10,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "tortillas",
+     "qty": 4
+    },
+    {
+     "id": "cheddar",
+     "qty": 80
+    },
+    {
+     "id": "lime",
+     "qty": 1
+    },
+    {
+     "id": "chili_flakes",
+     "qty": 2
+    }
+   ],
+   "consumes": [
+    {
+     "id": "cooked_beans",
+     "qty": 300
+    },
+    {
+     "id": "cooked_rice",
+     "qty": 300
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "assemble"
+   ],
+   "tags": [
+    "dairy",
+    "gluten"
+   ],
+   "steps": [
+    "Warm beans and rice in the pan with a squeeze of lime and chili flakes.",
+    "Fill tortillas, add cheese, roll tight.",
+    "Toast seam-side down in the pan 2 minutes per side."
+   ],
+   "moods": [
+    "quick",
+    "comfort",
+    "spicy"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "bean_bowls",
+   "name": "Bean rice bowls",
+   "meals": 2,
+   "active_minutes": 8,
+   "total_minutes": 8,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "eggs",
+     "qty": 2
+    },
+    {
+     "id": "cilantro",
+     "qty": 1
+    },
+    {
+     "id": "lime",
+     "qty": 1
+    },
+    {
+     "id": "chili_flakes",
+     "qty": 2
+    }
+   ],
+   "consumes": [
+    {
+     "id": "cooked_beans",
+     "qty": 300
+    },
+    {
+     "id": "cooked_rice",
+     "qty": 350
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "fry",
+    "assemble"
+   ],
+   "tags": [
+    "eggs"
+   ],
+   "steps": [
+    "Warm rice and beans.",
+    "Fry two eggs.",
+    "Bowl the rice, beans, egg on top, cilantro, lime, chili."
+   ],
+   "moods": [
+    "quick",
+    "high_fiber",
+    "spicy"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "tomato_sauce",
+   "name": "Big batch tomato sauce",
+   "meals": 0,
+   "active_minutes": 10,
+   "total_minutes": 40,
+   "keeps_days": 5,
+   "ingredients": [
+    {
+     "id": "crushed_tomatoes",
+     "qty": 1600
+    },
+    {
+     "id": "onion",
+     "qty": 1
+    },
+    {
+     "id": "garlic",
+     "qty": 3
+    },
+    {
+     "id": "olive_oil",
+     "qty": 30
+    },
+    {
+     "id": "salt",
+     "qty": 8
+    },
+    {
+     "id": "chili_flakes",
+     "qty": 2
+    }
+   ],
+   "consumes": [],
+   "produces": [
+    {
+     "id": "tomato_sauce",
+     "qty": 1500
+    }
+   ],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "saute",
+    "simmer"
+   ],
+   "tags": [],
+   "steps": [
+    "Dice onion, saut\u00e9 in oil until soft. Add sliced garlic 1 minute.",
+    "Add crushed tomatoes, salt, chili. Simmer 30 minutes, stirring now and then."
+   ],
+   "moods": [
+    "batch"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "pasta_red",
+   "name": "Pasta with tomato sauce",
+   "meals": 2,
+   "active_minutes": 12,
+   "total_minutes": 15,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "pasta",
+     "qty": 250
+    },
+    {
+     "id": "cheddar",
+     "qty": 40
+    },
+    {
+     "id": "salt",
+     "qty": 5
+    }
+   ],
+   "consumes": [
+    {
+     "id": "tomato_sauce",
+     "qty": 500
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "boil"
+   ],
+   "tags": [
+    "gluten",
+    "dairy"
+   ],
+   "steps": [
+    "Boil pasta in salted water 1 minute short of the package time.",
+    "Warm the sauce. Add pasta and a splash of pasta water. Toss 1 minute.",
+    "Grate cheese over."
+   ],
+   "moods": [
+    "quick",
+    "comfort",
+    "one_pot"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "shakshuka",
+   "name": "Shakshuka",
+   "meals": 2,
+   "active_minutes": 15,
+   "total_minutes": 20,
+   "keeps_days": 1,
+   "ingredients": [
+    {
+     "id": "eggs",
+     "qty": 4
+    },
+    {
+     "id": "bell_pepper",
+     "qty": 1
+    },
+    {
+     "id": "cumin",
+     "qty": 3
+    },
+    {
+     "id": "bread",
+     "qty": 4
+    }
+   ],
+   "consumes": [
+    {
+     "id": "tomato_sauce",
+     "qty": 500
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "saute",
+    "poach"
+   ],
+   "tags": [
+    "eggs",
+    "gluten"
+   ],
+   "steps": [
+    "Saut\u00e9 sliced pepper 5 minutes. Add sauce and cumin, simmer 3 minutes.",
+    "Make four wells. Crack an egg into each. Cover, cook 6 minutes.",
+    "Serve with bread."
+   ],
+   "moods": [
+    "spicy",
+    "high_protein",
+    "one_pot"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "beef_sauce_pasta",
+   "name": "Beef ragu pasta",
+   "meals": 2,
+   "active_minutes": 15,
+   "total_minutes": 25,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "ground_beef",
+     "qty": 450
+    },
+    {
+     "id": "pasta",
+     "qty": 250
+    },
+    {
+     "id": "onion",
+     "qty": 1
+    },
+    {
+     "id": "salt",
+     "qty": 5
+    }
+   ],
+   "consumes": [
+    {
+     "id": "tomato_sauce",
+     "qty": 500
+    }
+   ],
+   "produces": [
+    {
+     "id": "cooked_beef",
+     "qty": 150
+    }
+   ],
+   "equipment": [
+    "stove",
+    "pot",
+    "pan"
+   ],
+   "techniques": [
+    "saute",
+    "simmer",
+    "boil"
+   ],
+   "tags": [
+    "meat",
+    "beef",
+    "gluten"
+   ],
+   "steps": [
+    "Brown the beef with diced onion, 8 minutes. Salt.",
+    "Add sauce, simmer 10 minutes. Set aside a third of the beef mixture for later.",
+    "Boil pasta, toss with the ragu."
+   ],
+   "moods": [
+    "comfort",
+    "high_protein"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "beef_quesadillas",
+   "name": "Beef quesadillas",
+   "meals": 2,
+   "active_minutes": 10,
+   "total_minutes": 10,
+   "keeps_days": 1,
+   "ingredients": [
+    {
+     "id": "tortillas",
+     "qty": 4
+    },
+    {
+     "id": "cheddar",
+     "qty": 100
+    }
+   ],
+   "consumes": [
+    {
+     "id": "cooked_beef",
+     "qty": 150
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "assemble",
+    "fry"
+   ],
+   "tags": [
+    "meat",
+    "beef",
+    "dairy",
+    "gluten"
+   ],
+   "steps": [
+    "Lay a tortilla in the dry pan, add cheese and beef, top with a second tortilla.",
+    "Cook 3 minutes per side until golden. Cut into quarters."
+   ],
+   "moods": [
+    "quick",
+    "comfort"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "roast_veg",
+   "name": "Tray of roasted vegetables",
+   "meals": 0,
+   "active_minutes": 12,
+   "total_minutes": 45,
+   "keeps_days": 4,
+   "ingredients": [
+    {
+     "id": "bell_pepper",
+     "qty": 2
+    },
+    {
+     "id": "broccoli",
+     "qty": 500
+    },
+    {
+     "id": "potato",
+     "qty": 600
+    },
+    {
+     "id": "onion",
+     "qty": 1
+    },
+    {
+     "id": "olive_oil",
+     "qty": 45
+    },
+    {
+     "id": "salt",
+     "qty": 8
+    },
+    {
+     "id": "paprika",
+     "qty": 4
+    }
+   ],
+   "consumes": [],
+   "produces": [
+    {
+     "id": "roast_veg",
+     "qty": 1100
+    }
+   ],
+   "equipment": [
+    "oven",
+    "sheet_pan"
+   ],
+   "techniques": [
+    "roast"
+   ],
+   "tags": [],
+   "steps": [
+    "Oven to 425\u00b0F. Chop everything into similar-sized pieces.",
+    "Toss with oil, salt, paprika. Spread on the sheet pan without crowding.",
+    "Roast 30 minutes, flip halfway."
+   ],
+   "moods": [
+    "batch",
+    "high_fiber"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "veg_wraps",
+   "name": "Roast veg and hummus wraps",
+   "meals": 2,
+   "active_minutes": 8,
+   "total_minutes": 8,
+   "keeps_days": 1,
+   "ingredients": [
+    {
+     "id": "tortillas",
+     "qty": 4
+    },
+    {
+     "id": "chickpeas_can",
+     "qty": 400
+    },
+    {
+     "id": "lemon",
+     "qty": 1
+    },
+    {
+     "id": "garlic",
+     "qty": 1
+    },
+    {
+     "id": "olive_oil",
+     "qty": 30
+    }
+   ],
+   "consumes": [
+    {
+     "id": "roast_veg",
+     "qty": 400
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "blender"
+   ],
+   "techniques": [
+    "blend",
+    "assemble"
+   ],
+   "tags": [
+    "gluten"
+   ],
+   "steps": [
+    "Blend chickpeas, lemon juice, garlic, oil, and a little water into hummus.",
+    "Spread hummus on tortillas, pile in roasted vegetables, roll."
+   ],
+   "moods": [
+    "quick",
+    "light",
+    "high_fiber"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "grain_bowl",
+   "name": "Roast veg grain bowl",
+   "meals": 2,
+   "active_minutes": 8,
+   "total_minutes": 8,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "eggs",
+     "qty": 2
+    },
+    {
+     "id": "yogurt",
+     "qty": 150
+    },
+    {
+     "id": "lemon",
+     "qty": 1
+    },
+    {
+     "id": "chili_flakes",
+     "qty": 2
+    }
+   ],
+   "consumes": [
+    {
+     "id": "roast_veg",
+     "qty": 400
+    },
+    {
+     "id": "cooked_rice",
+     "qty": 400
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "fry",
+    "assemble"
+   ],
+   "tags": [
+    "eggs",
+    "dairy"
+   ],
+   "steps": [
+    "Warm rice and vegetables.",
+    "Fry the eggs.",
+    "Mix yogurt with lemon and salt. Spoon over the bowl. Chili on top."
+   ],
+   "moods": [
+    "light",
+    "high_fiber",
+    "high_protein"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "veg_fried_rice",
+   "name": "Vegetable fried rice",
+   "meals": 2,
+   "active_minutes": 12,
+   "total_minutes": 12,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "eggs",
+     "qty": 3
+    },
+    {
+     "id": "frozen_mixed_veg",
+     "qty": 300
+    },
+    {
+     "id": "soy_sauce",
+     "qty": 30
+    },
+    {
+     "id": "garlic",
+     "qty": 2
+    },
+    {
+     "id": "ginger",
+     "qty": 15
+    },
+    {
+     "id": "olive_oil",
+     "qty": 15
+    }
+   ],
+   "consumes": [
+    {
+     "id": "cooked_rice",
+     "qty": 500
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "saute",
+    "scramble"
+   ],
+   "tags": [
+    "eggs",
+    "soy",
+    "gluten"
+   ],
+   "steps": [
+    "Oil on high heat, garlic and ginger 20 seconds.",
+    "Cold rice in, spread, leave 2 minutes.",
+    "Scramble eggs in a gap. Add frozen veg and soy. Toss 3 minutes."
+   ],
+   "moods": [
+    "quick",
+    "one_pot"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "lentil_base",
+   "name": "Pot of spiced lentils",
+   "meals": 0,
+   "active_minutes": 10,
+   "total_minutes": 35,
+   "keeps_days": 5,
+   "ingredients": [
+    {
+     "id": "lentils",
+     "qty": 400
+    },
+    {
+     "id": "onion",
+     "qty": 1
+    },
+    {
+     "id": "garlic",
+     "qty": 2
+    },
+    {
+     "id": "ginger",
+     "qty": 15
+    },
+    {
+     "id": "curry_powder",
+     "qty": 10
+    },
+    {
+     "id": "coconut_milk",
+     "qty": 400
+    },
+    {
+     "id": "salt",
+     "qty": 8
+    }
+   ],
+   "consumes": [],
+   "produces": [
+    {
+     "id": "lentil_base",
+     "qty": 1300
+    }
+   ],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "saute",
+    "simmer"
+   ],
+   "tags": [],
+   "steps": [
+    "Saut\u00e9 diced onion, garlic, ginger 5 minutes. Add curry powder 1 minute.",
+    "Add lentils, coconut milk, and 800 ml water. Simmer 25 minutes until soft. Salt."
+   ],
+   "moods": [
+    "batch",
+    "high_fiber",
+    "high_protein"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "dal_rice",
+   "name": "Dal with rice",
+   "meals": 2,
+   "active_minutes": 5,
+   "total_minutes": 8,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "lime",
+     "qty": 1
+    },
+    {
+     "id": "cilantro",
+     "qty": 1
+    }
+   ],
+   "consumes": [
+    {
+     "id": "lentil_base",
+     "qty": 600
+    },
+    {
+     "id": "cooked_rice",
+     "qty": 400
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "reheat"
+   ],
+   "tags": [],
+   "steps": [
+    "Warm the lentils and rice.",
+    "Finish with lime and cilantro."
+   ],
+   "moods": [
+    "comfort",
+    "spicy",
+    "one_pot"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "lentil_soup",
+   "name": "Lentil soup with bread",
+   "meals": 2,
+   "active_minutes": 8,
+   "total_minutes": 12,
+   "keeps_days": 3,
+   "ingredients": [
+    {
+     "id": "spinach",
+     "qty": 140
+    },
+    {
+     "id": "lemon",
+     "qty": 1
+    },
+    {
+     "id": "bread",
+     "qty": 4
+    }
+   ],
+   "consumes": [
+    {
+     "id": "lentil_base",
+     "qty": 600
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "simmer"
+   ],
+   "tags": [
+    "gluten"
+   ],
+   "steps": [
+    "Thin the lentils with 300 ml water, bring to a simmer.",
+    "Stir in spinach until wilted. Lemon juice. Serve with bread."
+   ],
+   "moods": [
+    "comfort",
+    "one_pot",
+    "light"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "overnight_oats",
+   "name": "Overnight oats",
+   "meals": 3,
+   "active_minutes": 5,
+   "total_minutes": 5,
+   "keeps_days": 4,
+   "ingredients": [
+    {
+     "id": "oats",
+     "qty": 240
+    },
+    {
+     "id": "milk",
+     "qty": 600
+    },
+    {
+     "id": "yogurt",
+     "qty": 150
+    },
+    {
+     "id": "banana",
+     "qty": 3
+    },
+    {
+     "id": "peanut_butter",
+     "qty": 45
+    }
+   ],
+   "consumes": [],
+   "produces": [],
+   "equipment": [],
+   "techniques": [
+    "assemble"
+   ],
+   "tags": [
+    "dairy",
+    "nuts"
+   ],
+   "steps": [
+    "In three jars: 80 g oats, 200 ml milk, a spoon of yogurt each.",
+    "Stir. Refrigerate overnight.",
+    "Top with sliced banana and peanut butter when eating."
+   ],
+   "moods": [
+    "quick",
+    "breakfast",
+    "light"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "egg_sandwiches",
+   "name": "Egg and cheese sandwiches",
+   "meals": 2,
+   "active_minutes": 10,
+   "total_minutes": 10,
+   "keeps_days": 0,
+   "ingredients": [
+    {
+     "id": "eggs",
+     "qty": 4
+    },
+    {
+     "id": "bread",
+     "qty": 4
+    },
+    {
+     "id": "cheddar",
+     "qty": 60
+    },
+    {
+     "id": "butter",
+     "qty": 15
+    }
+   ],
+   "consumes": [],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "scramble"
+   ],
+   "tags": [
+    "eggs",
+    "dairy",
+    "gluten"
+   ],
+   "steps": [
+    "Toast bread in a buttered pan.",
+    "Scramble eggs low and slow. Add cheese at the end.",
+    "Sandwich."
+   ],
+   "moods": [
+    "quick",
+    "breakfast",
+    "high_protein"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "pancakes",
+   "name": "Pancakes",
+   "meals": 2,
+   "active_minutes": 15,
+   "total_minutes": 15,
+   "keeps_days": 2,
+   "ingredients": [
+    {
+     "id": "flour",
+     "qty": 200
+    },
+    {
+     "id": "milk",
+     "qty": 300
+    },
+    {
+     "id": "eggs",
+     "qty": 2
+    },
+    {
+     "id": "butter",
+     "qty": 30
+    },
+    {
+     "id": "banana",
+     "qty": 2
+    }
+   ],
+   "consumes": [],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "fry"
+   ],
+   "tags": [
+    "dairy",
+    "eggs",
+    "gluten"
+   ],
+   "steps": [
+    "Whisk flour, milk, eggs, a pinch of salt.",
+    "Butter the pan, medium heat. Ladle batter, flip when bubbles pop.",
+    "Sliced banana on top."
+   ],
+   "moods": [
+    "breakfast",
+    "comfort"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "tuna_pasta",
+   "name": "Tuna pasta",
+   "meals": 2,
+   "active_minutes": 12,
+   "total_minutes": 15,
+   "keeps_days": 2,
+   "ingredients": [
+    {
+     "id": "pasta",
+     "qty": 250
+    },
+    {
+     "id": "canned_tuna",
+     "qty": 280
+    },
+    {
+     "id": "frozen_peas",
+     "qty": 150
+    },
+    {
+     "id": "lemon",
+     "qty": 1
+    },
+    {
+     "id": "olive_oil",
+     "qty": 30
+    },
+    {
+     "id": "garlic",
+     "qty": 2
+    },
+    {
+     "id": "chili_flakes",
+     "qty": 2
+    }
+   ],
+   "consumes": [],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "boil",
+    "saute"
+   ],
+   "tags": [
+    "fish",
+    "gluten"
+   ],
+   "steps": [
+    "Boil pasta. Add peas for the last 2 minutes.",
+    "Warm oil, garlic, chili in the pot. Add drained tuna and lemon zest.",
+    "Toss pasta in with a splash of pasta water."
+   ],
+   "moods": [
+    "quick",
+    "high_protein",
+    "one_pot"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "salmon_rice",
+   "name": "Salmon rice bowls",
+   "meals": 2,
+   "active_minutes": 12,
+   "total_minutes": 15,
+   "keeps_days": 1,
+   "ingredients": [
+    {
+     "id": "salmon",
+     "qty": 400
+    },
+    {
+     "id": "broccoli",
+     "qty": 300
+    },
+    {
+     "id": "soy_sauce",
+     "qty": 30
+    },
+    {
+     "id": "ginger",
+     "qty": 10
+    },
+    {
+     "id": "lime",
+     "qty": 1
+    }
+   ],
+   "consumes": [
+    {
+     "id": "cooked_rice",
+     "qty": 400
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "saute"
+   ],
+   "tags": [
+    "fish",
+    "soy",
+    "gluten"
+   ],
+   "steps": [
+    "Sear salmon 4 minutes skin side, 2 minutes flesh side.",
+    "Steam broccoli in the pan with a splash of water, 3 minutes.",
+    "Bowl the rice, salmon, broccoli. Soy, ginger, lime over."
+   ],
+   "moods": [
+    "high_protein",
+    "light"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "tofu_stirfry",
+   "name": "Tofu stir fry",
+   "meals": 2,
+   "active_minutes": 15,
+   "total_minutes": 15,
+   "keeps_days": 2,
+   "ingredients": [
+    {
+     "id": "tofu",
+     "qty": 400
+    },
+    {
+     "id": "broccoli",
+     "qty": 300
+    },
+    {
+     "id": "carrot",
+     "qty": 150
+    },
+    {
+     "id": "soy_sauce",
+     "qty": 40
+    },
+    {
+     "id": "garlic",
+     "qty": 2
+    },
+    {
+     "id": "ginger",
+     "qty": 15
+    },
+    {
+     "id": "olive_oil",
+     "qty": 20
+    }
+   ],
+   "consumes": [
+    {
+     "id": "cooked_rice",
+     "qty": 400
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pan"
+   ],
+   "techniques": [
+    "saute"
+   ],
+   "tags": [
+    "soy",
+    "gluten"
+   ],
+   "steps": [
+    "Press and cube tofu. Fry in oil until golden on two sides.",
+    "Add broccoli, carrot, garlic, ginger. Toss 4 minutes.",
+    "Soy sauce in, 1 minute. Serve over rice."
+   ],
+   "moods": [
+    "quick",
+    "high_protein",
+    "one_pot"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "baked_potatoes",
+   "name": "Loaded baked potatoes",
+   "meals": 2,
+   "active_minutes": 8,
+   "total_minutes": 60,
+   "keeps_days": 2,
+   "ingredients": [
+    {
+     "id": "potato",
+     "qty": 800
+    },
+    {
+     "id": "cheddar",
+     "qty": 80
+    },
+    {
+     "id": "yogurt",
+     "qty": 100
+    },
+    {
+     "id": "butter",
+     "qty": 20
+    },
+    {
+     "id": "salt",
+     "qty": 4
+    }
+   ],
+   "consumes": [
+    {
+     "id": "cooked_beans",
+     "qty": 200
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "oven"
+   ],
+   "techniques": [
+    "bake"
+   ],
+   "tags": [
+    "dairy"
+   ],
+   "steps": [
+    "Prick potatoes, rub with salt. Bake at 400\u00b0F for 55 minutes.",
+    "Split, butter, load with warm beans, cheese, a spoon of yogurt."
+   ],
+   "moods": [
+    "comfort",
+    "high_fiber"
+   ],
+   "source": "catalog"
+  },
+  {
+   "id": "chickpea_curry",
+   "name": "Chickpea curry",
+   "meals": 2,
+   "active_minutes": 12,
+   "total_minutes": 25,
+   "keeps_days": 4,
+   "ingredients": [
+    {
+     "id": "chickpeas_can",
+     "qty": 800
+    },
+    {
+     "id": "onion",
+     "qty": 1
+    },
+    {
+     "id": "garlic",
+     "qty": 2
+    },
+    {
+     "id": "curry_powder",
+     "qty": 10
+    },
+    {
+     "id": "coconut_milk",
+     "qty": 400
+    },
+    {
+     "id": "spinach",
+     "qty": 140
+    },
+    {
+     "id": "salt",
+     "qty": 6
+    }
+   ],
+   "consumes": [
+    {
+     "id": "cooked_rice",
+     "qty": 400
+    }
+   ],
+   "produces": [],
+   "equipment": [
+    "stove",
+    "pot"
+   ],
+   "techniques": [
+    "saute",
+    "simmer"
+   ],
+   "tags": [],
+   "steps": [
+    "Saut\u00e9 onion and garlic. Curry powder 1 minute.",
+    "Add chickpeas and coconut milk. Simmer 15 minutes.",
+    "Stir in spinach. Serve over rice."
+   ],
+   "moods": [
+    "spicy",
+    "one_pot",
+    "high_fiber"
+   ],
+   "source": "catalog"
+  }
+ ]
+}

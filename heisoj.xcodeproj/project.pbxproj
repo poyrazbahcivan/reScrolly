@@ -6,20 +6,142 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A36BD52D305561A300303CA4 /* auth.py in Resources */ = {isa = PBXBuildFile; fileRef = A36BD4FE305561A300303CA4 /* auth.py */; };
+		A36BD52E305561A300303CA4 /* db.py in Resources */ = {isa = PBXBuildFile; fileRef = A36BD4FF305561A300303CA4 /* db.py */; };
+		A36BD52F305561A300303CA4 /* recipes_import.py in Resources */ = {isa = PBXBuildFile; fileRef = A36BD502305561A300303CA4 /* recipes_import.py */; };
+		A36BD530305561A300303CA4 /* requirements.txt in Resources */ = {isa = PBXBuildFile; fileRef = A36BD507305561A300303CA4 /* requirements.txt */; };
+		A36BD531305561A300303CA4 /* models.py in Resources */ = {isa = PBXBuildFile; fileRef = A36BD501305561A300303CA4 /* models.py */; };
+		A36BD532305561A300303CA4 /* run.sh in Resources */ = {isa = PBXBuildFile; fileRef = A36BD508305561A300303CA4 /* run.sh */; };
+		A36BD533305561A300303CA4 /* Dockerfile in Resources */ = {isa = PBXBuildFile; fileRef = A36BD506305561A300303CA4 /* Dockerfile */; };
+		A36BD534305561A300303CA4 /* FallbackPlan.json in Resources */ = {isa = PBXBuildFile; fileRef = A36BD526305561A300303CA4 /* FallbackPlan.json */; };
+		A36BD535305561A300303CA4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A36BD52C305561A300303CA4 /* README.md */; };
+		A36BD536305561A300303CA4 /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = A36BD500305561A300303CA4 /* main.py */; };
+		A36BD537305561A300303CA4 /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = A36BD4FD305561A300303CA4 /* __init__.py */; };
+		A36BD538305561A300303CA4 /* recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = A36BD4FB305561A300303CA4 /* recipes.json */; };
+		A36BD539305561A300303CA4 /* ingredients.json in Resources */ = {isa = PBXBuildFile; fileRef = A36BD4FA305561A300303CA4 /* ingredients.json */; };
+		A36BD53A305561A300303CA4 /* Auth0.plist.example in Resources */ = {isa = PBXBuildFile; fileRef = A36BD528305561A300303CA4 /* Auth0.plist.example */; };
+		A36BD53B305561A300303CA4 /* .env.example in Resources */ = {isa = PBXBuildFile; fileRef = A36BD505305561A300303CA4 /* .env.example */; };
+		A36BD53C305561A300303CA4 /* solver.py in Resources */ = {isa = PBXBuildFile; fileRef = A36BD503305561A300303CA4 /* solver.py */; };
+		A36BD53D305561A300303CA4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD512305561A300303CA4 /* Models.swift */; };
+		A36BD53E305561A300303CA4 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD518305561A300303CA4 /* MainTabView.swift */; };
+		A36BD53F305561A300303CA4 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD51C305561A300303CA4 /* RecipesView.swift */; };
+		A36BD540305561A300303CA4 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD510305561A300303CA4 /* CalendarManager.swift */; };
+		A36BD541305561A300303CA4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD50F305561A300303CA4 /* AppState.swift */; };
+		A36BD542305561A300303CA4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD524305561A300303CA4 /* WelcomeView.swift */; };
+		A36BD543305561A300303CA4 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD50B305561A300303CA4 /* ForgotPasswordView.swift */; };
+		A36BD544305561A300303CA4 /* RecipeImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD51B305561A300303CA4 /* RecipeImportView.swift */; };
+		A36BD545305561A300303CA4 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD511305561A300303CA4 /* Keychain.swift */; };
+		A36BD546305561A300303CA4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD513305561A300303CA4 /* NotificationManager.swift */; };
+		A36BD547305561A300303CA4 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD51F305561A300303CA4 /* TodayView.swift */; };
+		A36BD548305561A300303CA4 /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD519305561A300303CA4 /* PlanView.swift */; };
+		A36BD549305561A300303CA4 /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD522305561A300303CA4 /* OnboardingFlow.swift */; };
+		A36BD54A305561A300303CA4 /* CookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD516305561A300303CA4 /* CookView.swift */; };
+		A36BD54B305561A300303CA4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD514305561A300303CA4 /* Theme.swift */; };
+		A36BD54C305561A300303CA4 /* OnboardingSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD523305561A300303CA4 /* OnboardingSteps.swift */; };
+		A36BD54D305561A300303CA4 /* FlowGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD517305561A300303CA4 /* FlowGraphView.swift */; };
+		A36BD54E305561A300303CA4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD50C305561A300303CA4 /* LoginView.swift */; };
+		A36BD54F305561A300303CA4 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD51E305561A300303CA4 /* ShopView.swift */; };
+		A36BD550305561A300303CA4 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD50E305561A300303CA4 /* APIClient.swift */; };
+		A36BD551305561A300303CA4 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD50A305561A300303CA4 /* CreateAccountView.swift */; };
+		A36BD552305561A300303CA4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD51A305561A300303CA4 /* ProfileView.swift */; };
+		A36BD553305561A300303CA4 /* BuildingPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD521305561A300303CA4 /* BuildingPlanView.swift */; };
+		A36BD554305561A300303CA4 /* heisojApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD529305561A300303CA4 /* heisojApp.swift */; };
+		A36BD555305561A300303CA4 /* RotTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD51D305561A300303CA4 /* RotTimelineView.swift */; };
+		A36BD558305564EE00303CA4 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = A36BD557305564EE00303CA4 /* Auth0 */; };
+		A36BD55B305565BF00303CA4 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = A36BD55A305565BF00303CA4 /* Auth0.plist */; };
+		C0DE5A0000000000000000A9 /* heisojShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C0DE5A0000000000000000A2 /* heisojShare.appex */; settings = {ATTRIBUTES = (RemoveHeaderOnCopy, ); }; };
+		C0DE5A0000000000000000AF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD514305561A300303CA4 /* Theme.swift */; };
+		C0DE5A0000000000000000B0 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36BD512305561A300303CA4 /* Models.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C0DE5A0000000000000000AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A36BD4E43055618200303CA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0DE5A0000000000000000A1;
+			remoteInfo = heisojShare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C0DE5A0000000000000000A8 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C0DE5A0000000000000000A9 /* heisojShare.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A36BD4EC3055618200303CA4 /* heisoj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heisoj.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A36BD4FA305561A300303CA4 /* ingredients.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ingredients.json; sourceTree = "<group>"; };
+		A36BD4FB305561A300303CA4 /* recipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recipes.json; sourceTree = "<group>"; };
+		A36BD4FD305561A300303CA4 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		A36BD4FE305561A300303CA4 /* auth.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = auth.py; sourceTree = "<group>"; };
+		A36BD4FF305561A300303CA4 /* db.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = db.py; sourceTree = "<group>"; };
+		A36BD500305561A300303CA4 /* main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
+		A36BD501305561A300303CA4 /* models.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = models.py; sourceTree = "<group>"; };
+		A36BD502305561A300303CA4 /* recipes_import.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = recipes_import.py; sourceTree = "<group>"; };
+		A36BD503305561A300303CA4 /* solver.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = solver.py; sourceTree = "<group>"; };
+		A36BD505305561A300303CA4 /* .env.example */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env.example; sourceTree = "<group>"; };
+		A36BD506305561A300303CA4 /* Dockerfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Dockerfile; sourceTree = "<group>"; };
+		A36BD507305561A300303CA4 /* requirements.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = requirements.txt; sourceTree = "<group>"; };
+		A36BD508305561A300303CA4 /* run.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
+		A36BD50A305561A300303CA4 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		A36BD50B305561A300303CA4 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		A36BD50C305561A300303CA4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A36BD50E305561A300303CA4 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A36BD50F305561A300303CA4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		A36BD510305561A300303CA4 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		A36BD511305561A300303CA4 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		A36BD512305561A300303CA4 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A36BD513305561A300303CA4 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		A36BD514305561A300303CA4 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A36BD516305561A300303CA4 /* CookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookView.swift; sourceTree = "<group>"; };
+		A36BD517305561A300303CA4 /* FlowGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowGraphView.swift; sourceTree = "<group>"; };
+		A36BD518305561A300303CA4 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		A36BD519305561A300303CA4 /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
+		A36BD51A305561A300303CA4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A36BD51B305561A300303CA4 /* RecipeImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeImportView.swift; sourceTree = "<group>"; };
+		A36BD51C305561A300303CA4 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
+		A36BD51D305561A300303CA4 /* RotTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotTimelineView.swift; sourceTree = "<group>"; };
+		A36BD51E305561A300303CA4 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		A36BD51F305561A300303CA4 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		A36BD521305561A300303CA4 /* BuildingPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingPlanView.swift; sourceTree = "<group>"; };
+		A36BD522305561A300303CA4 /* OnboardingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlow.swift; sourceTree = "<group>"; };
+		A36BD523305561A300303CA4 /* OnboardingSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSteps.swift; sourceTree = "<group>"; };
+		A36BD524305561A300303CA4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		A36BD526305561A300303CA4 /* FallbackPlan.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FallbackPlan.json; sourceTree = "<group>"; };
+		A36BD528305561A300303CA4 /* Auth0.plist.example */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Auth0.plist.example; sourceTree = "<group>"; };
+		A36BD529305561A300303CA4 /* heisojApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = heisojApp.swift; sourceTree = "<group>"; };
+		A36BD52C305561A300303CA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A36BD55A305565BF00303CA4 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Auth0.plist; path = ios/heisoj/Auth0.plist; sourceTree = "<group>"; };
+		A36BD55C3055C95800303CA4 /* heisoj-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "heisoj-Info.plist"; sourceTree = "<group>"; };
+		C0DE5A0000000000000000A2 /* heisojShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = heisojShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0DE5A0000000000000000A3 /* heisojShare-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "heisojShare-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		A36BD4EE3055618200303CA4 /* heisoj */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = heisoj;
-			sourceTree = "<group>";
-		};
+		C0DE5A0000000000000000A4 /* heisojShare */ = {isa = PBXFileSystemSynchronizedRootGroup; path = heisojShare; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A36BD4E93055618200303CA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36BD558305564EE00303CA4 /* Auth0 in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0DE5A0000000000000000A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -32,7 +154,12 @@
 		A36BD4E33055618200303CA4 = {
 			isa = PBXGroup;
 			children = (
-				A36BD4EE3055618200303CA4 /* heisoj */,
+				A36BD55C3055C95800303CA4 /* heisoj-Info.plist */,
+				A36BD55A305565BF00303CA4 /* Auth0.plist */,
+				A36BD509305561A300303CA4 /* backend */,
+				A36BD52B305561A300303CA4 /* ios */,
+				A36BD52C305561A300303CA4 /* README.md */,
+				A36BD5593055650700303CA4 /* Frameworks */,
 				A36BD4ED3055618200303CA4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +168,136 @@
 			isa = PBXGroup;
 			children = (
 				A36BD4EC3055618200303CA4 /* heisoj.app */,
+				C0DE5A0000000000000000A2 /* heisojShare.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A36BD4FC305561A300303CA4 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				A36BD4FA305561A300303CA4 /* ingredients.json */,
+				A36BD4FB305561A300303CA4 /* recipes.json */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		A36BD504305561A300303CA4 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				A36BD4FC305561A300303CA4 /* data */,
+				A36BD4FD305561A300303CA4 /* __init__.py */,
+				A36BD4FE305561A300303CA4 /* auth.py */,
+				A36BD4FF305561A300303CA4 /* db.py */,
+				A36BD500305561A300303CA4 /* main.py */,
+				A36BD501305561A300303CA4 /* models.py */,
+				A36BD502305561A300303CA4 /* recipes_import.py */,
+				A36BD503305561A300303CA4 /* solver.py */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		A36BD509305561A300303CA4 /* backend */ = {
+			isa = PBXGroup;
+			children = (
+				A36BD504305561A300303CA4 /* app */,
+				A36BD505305561A300303CA4 /* .env.example */,
+				A36BD506305561A300303CA4 /* Dockerfile */,
+				A36BD507305561A300303CA4 /* requirements.txt */,
+				A36BD508305561A300303CA4 /* run.sh */,
+			);
+			path = backend;
+			sourceTree = "<group>";
+		};
+		A36BD50D305561A300303CA4 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				A36BD50A305561A300303CA4 /* CreateAccountView.swift */,
+				A36BD50B305561A300303CA4 /* ForgotPasswordView.swift */,
+				A36BD50C305561A300303CA4 /* LoginView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		A36BD515305561A300303CA4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A36BD50E305561A300303CA4 /* APIClient.swift */,
+				A36BD50F305561A300303CA4 /* AppState.swift */,
+				A36BD510305561A300303CA4 /* CalendarManager.swift */,
+				A36BD511305561A300303CA4 /* Keychain.swift */,
+				A36BD512305561A300303CA4 /* Models.swift */,
+				A36BD513305561A300303CA4 /* NotificationManager.swift */,
+				A36BD514305561A300303CA4 /* Theme.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A36BD520305561A300303CA4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A36BD516305561A300303CA4 /* CookView.swift */,
+				A36BD517305561A300303CA4 /* FlowGraphView.swift */,
+				A36BD518305561A300303CA4 /* MainTabView.swift */,
+				A36BD519305561A300303CA4 /* PlanView.swift */,
+				A36BD51A305561A300303CA4 /* ProfileView.swift */,
+				A36BD51B305561A300303CA4 /* RecipeImportView.swift */,
+				A36BD51C305561A300303CA4 /* RecipesView.swift */,
+				A36BD51D305561A300303CA4 /* RotTimelineView.swift */,
+				A36BD51E305561A300303CA4 /* ShopView.swift */,
+				A36BD51F305561A300303CA4 /* TodayView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A36BD525305561A300303CA4 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A36BD521305561A300303CA4 /* BuildingPlanView.swift */,
+				A36BD522305561A300303CA4 /* OnboardingFlow.swift */,
+				A36BD523305561A300303CA4 /* OnboardingSteps.swift */,
+				A36BD524305561A300303CA4 /* WelcomeView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		A36BD527305561A300303CA4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A36BD526305561A300303CA4 /* FallbackPlan.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A36BD52A305561A300303CA4 /* heisoj */ = {
+			isa = PBXGroup;
+			children = (
+				A36BD50D305561A300303CA4 /* Auth */,
+				A36BD515305561A300303CA4 /* Core */,
+				A36BD520305561A300303CA4 /* Main */,
+				A36BD525305561A300303CA4 /* Onboarding */,
+				A36BD527305561A300303CA4 /* Resources */,
+				A36BD528305561A300303CA4 /* Auth0.plist.example */,
+				A36BD529305561A300303CA4 /* heisojApp.swift */,
+			);
+			path = heisoj;
+			sourceTree = "<group>";
+		};
+		A36BD52B305561A300303CA4 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				A36BD52A305561A300303CA4 /* heisoj */,
+				C0DE5A0000000000000000A4 /* heisojShare */,
+				C0DE5A0000000000000000A3 /* heisojShare-Info.plist */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		A36BD5593055650700303CA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,20 +310,42 @@
 				A36BD4E83055618200303CA4 /* Sources */,
 				A36BD4E93055618200303CA4 /* Frameworks */,
 				A36BD4EA3055618200303CA4 /* Resources */,
+				C0DE5A0000000000000000A8 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0DE5A0000000000000000AB /* PBXTargetDependency */,
+			);
+			name = heisoj;
+			packageProductDependencies = (
+				A36BD557305564EE00303CA4 /* Auth0 */,
+			);
+			productName = heisoj;
+			productReference = A36BD4EC3055618200303CA4 /* heisoj.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C0DE5A0000000000000000A1 /* heisojShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0DE5A0000000000000000AC /* Build configuration list for PBXNativeTarget "heisojShare" */;
+			buildPhases = (
+				C0DE5A0000000000000000A5 /* Sources */,
+				C0DE5A0000000000000000A6 /* Frameworks */,
+				C0DE5A0000000000000000A7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				A36BD4EE3055618200303CA4 /* heisoj */,
+				C0DE5A0000000000000000A4 /* heisojShare */,
 			);
-			name = heisoj;
+			name = heisojShare;
 			packageProductDependencies = (
 			);
-			productName = heisoj;
-			productReference = A36BD4EC3055618200303CA4 /* heisoj.app */;
-			productType = "com.apple.product-type.application";
+			productName = heisojShare;
+			productReference = C0DE5A0000000000000000A2 /* heisojShare.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -83,6 +360,9 @@
 					A36BD4EB3055618200303CA4 = {
 						CreatedOnToolsVersion = 26.6;
 					};
+					C0DE5A0000000000000000A1 = {
+						CreatedOnToolsVersion = 26.6;
+					};
 				};
 			};
 			buildConfigurationList = A36BD4E73055618200303CA4 /* Build configuration list for PBXProject "heisoj" */;
@@ -94,18 +374,46 @@
 			);
 			mainGroup = A36BD4E33055618200303CA4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A36BD556305564EE00303CA4 /* XCRemoteSwiftPackageReference "Auth0" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A36BD4ED3055618200303CA4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				A36BD4EB3055618200303CA4 /* heisoj */,
+				C0DE5A0000000000000000A1 /* heisojShare */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A36BD4EA3055618200303CA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36BD55B305565BF00303CA4 /* Auth0.plist in Resources */,
+				A36BD52D305561A300303CA4 /* auth.py in Resources */,
+				A36BD52E305561A300303CA4 /* db.py in Resources */,
+				A36BD52F305561A300303CA4 /* recipes_import.py in Resources */,
+				A36BD530305561A300303CA4 /* requirements.txt in Resources */,
+				A36BD531305561A300303CA4 /* models.py in Resources */,
+				A36BD532305561A300303CA4 /* run.sh in Resources */,
+				A36BD533305561A300303CA4 /* Dockerfile in Resources */,
+				A36BD534305561A300303CA4 /* FallbackPlan.json in Resources */,
+				A36BD535305561A300303CA4 /* README.md in Resources */,
+				A36BD536305561A300303CA4 /* main.py in Resources */,
+				A36BD537305561A300303CA4 /* __init__.py in Resources */,
+				A36BD538305561A300303CA4 /* recipes.json in Resources */,
+				A36BD539305561A300303CA4 /* ingredients.json in Resources */,
+				A36BD53A305561A300303CA4 /* Auth0.plist.example in Resources */,
+				A36BD53B305561A300303CA4 /* .env.example in Resources */,
+				A36BD53C305561A300303CA4 /* solver.py in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0DE5A0000000000000000A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -119,10 +427,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A36BD53D305561A300303CA4 /* Models.swift in Sources */,
+				A36BD53E305561A300303CA4 /* MainTabView.swift in Sources */,
+				A36BD53F305561A300303CA4 /* RecipesView.swift in Sources */,
+				A36BD540305561A300303CA4 /* CalendarManager.swift in Sources */,
+				A36BD541305561A300303CA4 /* AppState.swift in Sources */,
+				A36BD542305561A300303CA4 /* WelcomeView.swift in Sources */,
+				A36BD543305561A300303CA4 /* ForgotPasswordView.swift in Sources */,
+				A36BD544305561A300303CA4 /* RecipeImportView.swift in Sources */,
+				A36BD545305561A300303CA4 /* Keychain.swift in Sources */,
+				A36BD546305561A300303CA4 /* NotificationManager.swift in Sources */,
+				A36BD547305561A300303CA4 /* TodayView.swift in Sources */,
+				A36BD548305561A300303CA4 /* PlanView.swift in Sources */,
+				A36BD549305561A300303CA4 /* OnboardingFlow.swift in Sources */,
+				A36BD54A305561A300303CA4 /* CookView.swift in Sources */,
+				A36BD54B305561A300303CA4 /* Theme.swift in Sources */,
+				A36BD54C305561A300303CA4 /* OnboardingSteps.swift in Sources */,
+				A36BD54D305561A300303CA4 /* FlowGraphView.swift in Sources */,
+				A36BD54E305561A300303CA4 /* LoginView.swift in Sources */,
+				A36BD54F305561A300303CA4 /* ShopView.swift in Sources */,
+				A36BD550305561A300303CA4 /* APIClient.swift in Sources */,
+				A36BD551305561A300303CA4 /* CreateAccountView.swift in Sources */,
+				A36BD552305561A300303CA4 /* ProfileView.swift in Sources */,
+				A36BD553305561A300303CA4 /* BuildingPlanView.swift in Sources */,
+				A36BD554305561A300303CA4 /* heisojApp.swift in Sources */,
+				A36BD555305561A300303CA4 /* RotTimelineView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0DE5A0000000000000000A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0DE5A0000000000000000AF /* Theme.swift in Sources */,
+				C0DE5A0000000000000000B0 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C0DE5A0000000000000000AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0DE5A0000000000000000A1 /* heisojShare */;
+			targetProxy = C0DE5A0000000000000000AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A36BD4F53055618400303CA4 /* Debug */ = {
@@ -256,16 +606,21 @@
 				DEVELOPMENT_TEAM = HV8YBUTG3L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "heisoj-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "We check your calendar for lunches and dinners so we don't plan meals you'll eat out.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Take a photo of a recipe from a cookbook or a card to add it.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = onepercentchocolatemilk.heisoj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -288,18 +643,81 @@
 				DEVELOPMENT_TEAM = HV8YBUTG3L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "heisoj-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "We check your calendar for lunches and dinners so we don't plan meals you'll eat out.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Take a photo of a recipe from a cookbook or a card to add it.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = onepercentchocolatemilk.heisoj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C0DE5A0000000000000000AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HV8YBUTG3L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios/heisojShare-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = heisoj;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = onepercentchocolatemilk.heisoj.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C0DE5A0000000000000000AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HV8YBUTG3L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios/heisojShare-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = heisoj;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = onepercentchocolatemilk.heisoj.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -331,7 +749,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C0DE5A0000000000000000AC /* Build configuration list for PBXNativeTarget "heisojShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0DE5A0000000000000000AD /* Debug */,
+				C0DE5A0000000000000000AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A36BD556305564EE00303CA4 /* XCRemoteSwiftPackageReference "Auth0" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/Auth0.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A36BD557305564EE00303CA4 /* Auth0 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A36BD556305564EE00303CA4 /* XCRemoteSwiftPackageReference "Auth0" */;
+			productName = Auth0;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A36BD4E43055618200303CA4 /* Project object */;
 }

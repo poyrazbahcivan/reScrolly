@@ -1,0 +1,592 @@
+[
+ {
+  "id": "chicken_whole",
+  "name": "Whole chicken",
+  "pack_qty": 1600,
+  "unit": "g",
+  "pack_price": 8.49,
+  "shelf_life_days": 2,
+  "perishable": true,
+  "section": "Meat",
+  "tags": [
+   "meat",
+   "poultry"
+  ],
+  "staple": false
+ },
+ {
+  "id": "chicken_thighs",
+  "name": "Chicken thighs",
+  "pack_qty": 900,
+  "unit": "g",
+  "pack_price": 6.29,
+  "shelf_life_days": 2,
+  "perishable": true,
+  "section": "Meat",
+  "tags": [
+   "meat",
+   "poultry"
+  ],
+  "staple": false
+ },
+ {
+  "id": "ground_beef",
+  "name": "Ground beef",
+  "pack_qty": 450,
+  "unit": "g",
+  "pack_price": 5.49,
+  "shelf_life_days": 2,
+  "perishable": true,
+  "section": "Meat",
+  "tags": [
+   "meat",
+   "beef"
+  ],
+  "staple": false
+ },
+ {
+  "id": "salmon",
+  "name": "Salmon fillets",
+  "pack_qty": 400,
+  "unit": "g",
+  "pack_price": 9.99,
+  "shelf_life_days": 2,
+  "perishable": true,
+  "section": "Seafood",
+  "tags": [
+   "fish"
+  ],
+  "staple": false
+ },
+ {
+  "id": "canned_tuna",
+  "name": "Canned tuna",
+  "pack_qty": 140,
+  "unit": "g",
+  "pack_price": 1.19,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [
+   "fish"
+  ],
+  "staple": false
+ },
+ {
+  "id": "eggs",
+  "name": "Eggs",
+  "pack_qty": 12,
+  "unit": "ea",
+  "pack_price": 3.29,
+  "shelf_life_days": 21,
+  "perishable": true,
+  "section": "Dairy & Eggs",
+  "tags": [
+   "eggs"
+  ],
+  "staple": false
+ },
+ {
+  "id": "milk",
+  "name": "Milk",
+  "pack_qty": 1900,
+  "unit": "ml",
+  "pack_price": 2.99,
+  "shelf_life_days": 7,
+  "perishable": true,
+  "section": "Dairy & Eggs",
+  "tags": [
+   "dairy"
+  ],
+  "staple": false
+ },
+ {
+  "id": "yogurt",
+  "name": "Plain yogurt",
+  "pack_qty": 900,
+  "unit": "g",
+  "pack_price": 3.49,
+  "shelf_life_days": 10,
+  "perishable": true,
+  "section": "Dairy & Eggs",
+  "tags": [
+   "dairy"
+  ],
+  "staple": false
+ },
+ {
+  "id": "cheddar",
+  "name": "Cheddar",
+  "pack_qty": 220,
+  "unit": "g",
+  "pack_price": 2.79,
+  "shelf_life_days": 21,
+  "perishable": true,
+  "section": "Dairy & Eggs",
+  "tags": [
+   "dairy"
+  ],
+  "staple": false
+ },
+ {
+  "id": "butter",
+  "name": "Butter",
+  "pack_qty": 225,
+  "unit": "g",
+  "pack_price": 3.19,
+  "shelf_life_days": 30,
+  "perishable": true,
+  "section": "Dairy & Eggs",
+  "tags": [
+   "dairy"
+  ],
+  "staple": false
+ },
+ {
+  "id": "tortillas",
+  "name": "Flour tortillas",
+  "pack_qty": 10,
+  "unit": "ea",
+  "pack_price": 2.49,
+  "shelf_life_days": 14,
+  "perishable": true,
+  "section": "Bakery",
+  "tags": [
+   "gluten"
+  ],
+  "staple": false
+ },
+ {
+  "id": "bread",
+  "name": "Sandwich bread",
+  "pack_qty": 20,
+  "unit": "slice",
+  "pack_price": 2.29,
+  "shelf_life_days": 5,
+  "perishable": true,
+  "section": "Bakery",
+  "tags": [
+   "gluten"
+  ],
+  "staple": false
+ },
+ {
+  "id": "rice",
+  "name": "White rice",
+  "pack_qty": 2000,
+  "unit": "g",
+  "pack_price": 3.49,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "pasta",
+  "name": "Pasta",
+  "pack_qty": 500,
+  "unit": "g",
+  "pack_price": 1.29,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [
+   "gluten"
+  ],
+  "staple": false
+ },
+ {
+  "id": "oats",
+  "name": "Rolled oats",
+  "pack_qty": 1000,
+  "unit": "g",
+  "pack_price": 2.99,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "flour",
+  "name": "Flour",
+  "pack_qty": 2000,
+  "unit": "g",
+  "pack_price": 2.49,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [
+   "gluten"
+  ],
+  "staple": false
+ },
+ {
+  "id": "black_beans_dry",
+  "name": "Dry black beans",
+  "pack_qty": 900,
+  "unit": "g",
+  "pack_price": 1.99,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "lentils",
+  "name": "Red lentils",
+  "pack_qty": 900,
+  "unit": "g",
+  "pack_price": 2.29,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "chickpeas_can",
+  "name": "Canned chickpeas",
+  "pack_qty": 400,
+  "unit": "g",
+  "pack_price": 0.99,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "crushed_tomatoes",
+  "name": "Crushed tomatoes",
+  "pack_qty": 800,
+  "unit": "g",
+  "pack_price": 1.49,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "coconut_milk",
+  "name": "Coconut milk",
+  "pack_qty": 400,
+  "unit": "ml",
+  "pack_price": 1.79,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "peanut_butter",
+  "name": "Peanut butter",
+  "pack_qty": 500,
+  "unit": "g",
+  "pack_price": 3.29,
+  "shelf_life_days": 180,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [
+   "nuts"
+  ],
+  "staple": false
+ },
+ {
+  "id": "soy_sauce",
+  "name": "Soy sauce",
+  "pack_qty": 300,
+  "unit": "ml",
+  "pack_price": 2.49,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [
+   "gluten",
+   "soy"
+  ],
+  "staple": true
+ },
+ {
+  "id": "olive_oil",
+  "name": "Olive oil",
+  "pack_qty": 500,
+  "unit": "ml",
+  "pack_price": 6.99,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": true
+ },
+ {
+  "id": "salt",
+  "name": "Salt",
+  "pack_qty": 500,
+  "unit": "g",
+  "pack_price": 0.99,
+  "shelf_life_days": 3650,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": true
+ },
+ {
+  "id": "pepper",
+  "name": "Black pepper",
+  "pack_qty": 50,
+  "unit": "g",
+  "pack_price": 2.49,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": true
+ },
+ {
+  "id": "cumin",
+  "name": "Cumin",
+  "pack_qty": 40,
+  "unit": "g",
+  "pack_price": 1.99,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": true
+ },
+ {
+  "id": "paprika",
+  "name": "Paprika",
+  "pack_qty": 40,
+  "unit": "g",
+  "pack_price": 1.99,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": true
+ },
+ {
+  "id": "curry_powder",
+  "name": "Curry powder",
+  "pack_qty": 40,
+  "unit": "g",
+  "pack_price": 2.29,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": true
+ },
+ {
+  "id": "chili_flakes",
+  "name": "Chili flakes",
+  "pack_qty": 30,
+  "unit": "g",
+  "pack_price": 1.79,
+  "shelf_life_days": 365,
+  "perishable": false,
+  "section": "Pantry",
+  "tags": [],
+  "staple": true
+ },
+ {
+  "id": "garlic",
+  "name": "Garlic",
+  "pack_qty": 5,
+  "unit": "ea",
+  "pack_price": 0.99,
+  "shelf_life_days": 21,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "onion",
+  "name": "Yellow onions",
+  "pack_qty": 5,
+  "unit": "ea",
+  "pack_price": 2.49,
+  "shelf_life_days": 21,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "potato",
+  "name": "Potatoes",
+  "pack_qty": 2200,
+  "unit": "g",
+  "pack_price": 3.49,
+  "shelf_life_days": 21,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "carrot",
+  "name": "Carrots",
+  "pack_qty": 900,
+  "unit": "g",
+  "pack_price": 1.49,
+  "shelf_life_days": 14,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "bell_pepper",
+  "name": "Bell peppers",
+  "pack_qty": 3,
+  "unit": "ea",
+  "pack_price": 3.29,
+  "shelf_life_days": 6,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "broccoli",
+  "name": "Broccoli",
+  "pack_qty": 500,
+  "unit": "g",
+  "pack_price": 2.29,
+  "shelf_life_days": 5,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "spinach",
+  "name": "Spinach",
+  "pack_qty": 280,
+  "unit": "g",
+  "pack_price": 2.99,
+  "shelf_life_days": 4,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "cilantro",
+  "name": "Cilantro",
+  "pack_qty": 1,
+  "unit": "bunch",
+  "pack_price": 0.99,
+  "shelf_life_days": 3,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "lime",
+  "name": "Limes",
+  "pack_qty": 4,
+  "unit": "ea",
+  "pack_price": 1.49,
+  "shelf_life_days": 14,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "lemon",
+  "name": "Lemons",
+  "pack_qty": 3,
+  "unit": "ea",
+  "pack_price": 1.79,
+  "shelf_life_days": 14,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "banana",
+  "name": "Bananas",
+  "pack_qty": 6,
+  "unit": "ea",
+  "pack_price": 1.59,
+  "shelf_life_days": 5,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "tomato",
+  "name": "Tomatoes",
+  "pack_qty": 4,
+  "unit": "ea",
+  "pack_price": 2.49,
+  "shelf_life_days": 5,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "ginger",
+  "name": "Ginger",
+  "pack_qty": 100,
+  "unit": "g",
+  "pack_price": 0.89,
+  "shelf_life_days": 21,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "frozen_peas",
+  "name": "Frozen peas",
+  "pack_qty": 450,
+  "unit": "g",
+  "pack_price": 1.49,
+  "shelf_life_days": 180,
+  "perishable": false,
+  "section": "Frozen",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "frozen_mixed_veg",
+  "name": "Frozen mixed vegetables",
+  "pack_qty": 450,
+  "unit": "g",
+  "pack_price": 1.39,
+  "shelf_life_days": 180,
+  "perishable": false,
+  "section": "Frozen",
+  "tags": [],
+  "staple": false
+ },
+ {
+  "id": "tofu",
+  "name": "Firm tofu",
+  "pack_qty": 400,
+  "unit": "g",
+  "pack_price": 2.29,
+  "shelf_life_days": 5,
+  "perishable": true,
+  "section": "Produce",
+  "tags": [
+   "soy"
+  ],
+  "staple": false
+ }
+]
